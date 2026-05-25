@@ -1,0 +1,74 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #000; color: #fff; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(0.5deg); }
+  66% { transform: translateY(-6px) rotate(-0.5deg); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes orb-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orb-rotate-rev {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+.float { animation: float 6s ease-in-out infinite; }
+.anim-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+
+/* Scroll reveal */
+.sr { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.sr.visible { opacity: 1; transform: translateY(0); }
+
+/* Nav links */
+.nav-link:hover { color: #fff !important; }
+
+/* Product cards */
+.product-card { transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0,204,106,0.28) !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 40px rgba(0,204,106,0.06) !important;
+}
+
+/* Diff cards */
+.diff-card { transition: background 0.2s ease, border-color 0.2s ease; }
+.diff-card:hover { background: rgba(255,255,255,0.035) !important; border-color: rgba(255,255,255,0.1) !important; }
+
+/* Footer links */
+.footer-link { transition: color 0.15s ease; }
+.footer-link:hover { color: #fff !important; }
+
+/* 3D orb */
+.orb-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0,204,106,0.15);
+}
+.orb-ring-1 { animation: orb-rotate 12s linear infinite; }
+.orb-ring-2 { animation: orb-rotate-rev 18s linear infinite; }
+.orb-ring-3 { animation: orb-rotate 25s linear infinite; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .products-grid  { grid-template-columns: 1fr !important; }
+  .diff-grid      { grid-template-columns: 1fr 1fr !important; }
+  .footer-grid    { grid-template-columns: 1fr 1fr !important; }
+  .stats-bar      { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 600px) {
+  .diff-grid   { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .stats-bar   { grid-template-columns: 1fr !important; }
+}
