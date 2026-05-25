@@ -7,18 +7,6 @@ const SplineHero = dynamic(() => import("./SplineHero"), { ssr: false });
 
 const MIN_WIDTH = 900; // px — mobile no carga el robot
 
-function checkWebGL(): boolean {
-  try {
-    const canvas = document.createElement("canvas");
-    return !!(
-      window.WebGLRenderingContext &&
-      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
-    );
-  } catch {
-    return false;
-  }
-}
-
 /* Fallback visual — CSS puro, cero peso, se ve en cualquier dispositivo */
 function HeroFallback() {
   return (
@@ -96,14 +84,10 @@ export default function SplineWithFallback() {
   const [canRender, setCanRender] = useState(false);
 
   useEffect(() => {
-    // 1. Mobile → nunca carga
-    if (window.innerWidth < MIN_WIDTH) return;
-
-    // 2. WebGL no soportado → no carga
-    if (!checkWebGL()) return;
-
-    // Si pasó ambos checks → cargar Spline
-    setCanRender(true);
+    // Pantalla >= 900px → cargar Spline. En mobile → fallback CSS.
+    if (window.innerWidth >= MIN_WIDTH) {
+      setCanRender(true);
+    }
   }, []);
 
   if (!canRender) return <HeroFallback />;
