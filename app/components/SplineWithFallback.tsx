@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
-const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
+// Cargamos SplineHero (que usa /next internamente) solo en el cliente, sin SSR
+const SplineHero = dynamic(() => import("./SplineHero"), { ssr: false });
 
-const SCENE      = "https://prod.spline.design/TdNd7eKsLbnB0cRx/scene.splinecode";
 const MIN_WIDTH  = 900;   // px — por debajo = mobile, no carga
 const MIN_MEMORY = 4;     // GB — deviceMemory API (Chrome only)
 
@@ -114,10 +114,5 @@ export default function SplineWithFallback() {
 
   if (!canRender) return <HeroFallback />;
 
-  return (
-    <Spline
-      scene={SCENE}
-      style={{ width: "100%", height: "100%" }}
-    />
-  );
+  return <SplineHero />;
 }
