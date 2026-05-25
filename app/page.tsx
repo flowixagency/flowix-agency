@@ -87,13 +87,14 @@ export default function FlowixAgency() {
           </span>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+        {/* Links — se ocultan en mobile via CSS */}
+        <div className="nav-links-row">
           {[
-            { label: "Productos",     href: "#productos" },
+            { label: "Productos",      href: "#productos" },
             { label: "Por qué Flowix", href: "#por-que" },
-            { label: "Contacto",      href: "#contacto" },
+            { label: "Contacto",       href: "#contacto" },
           ].map(l => (
-            <a key={l.label} href={l.href} className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8, transition: "color 0.15s" }}>{l.label}</a>
+            <a key={l.label} href={l.href} className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>{l.label}</a>
           ))}
         </div>
 
@@ -114,24 +115,19 @@ export default function FlowixAgency() {
         {/* Gradiente izquierdo para legibilidad del texto */}
         <div aria-hidden style={{
           position: "absolute", inset: 0,
-          background: "linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 50%, transparent 100%)",
+          background: "linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)",
           pointerEvents: "none", zIndex: 5,
         }} />
 
-        {/* Gradiente inferior para transición suave a la siguiente sección */}
+        {/* Gradiente inferior para transición suave */}
         <div aria-hidden style={{
           position: "absolute", bottom: 0, left: 0, right: 0, height: 180,
           background: "linear-gradient(to bottom, transparent, #000)",
           pointerEvents: "none", zIndex: 6,
         }} />
 
-        {/* Texto overlay — sin pointer events para no bloquear el robot */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 10,
-          display: "flex", alignItems: "center",
-          padding: "0 64px",
-          pointerEvents: "none",
-        }}>
+        {/* Texto overlay — pointer-events: none para no bloquear el robot */}
+        <div className="hero-text-overlay">
           <div style={{ maxWidth: 560 }}>
             <div className="anim-up" style={{
               display: "inline-flex", alignItems: "center", gap: 8,
@@ -145,26 +141,36 @@ export default function FlowixAgency() {
             </div>
 
             <h1 className="anim-up" style={{
-              fontSize: "clamp(44px, 5.5vw, 76px)", fontWeight: 800,
+              fontSize: "clamp(40px, 5.5vw, 76px)", fontWeight: 800,
               lineHeight: 1.0, letterSpacing: "-3.5px",
               margin: "0 0 28px", animationDelay: "0.1s",
             }}>
-              Construimos<br />el software de<br /><span style={{ color: G }}>tu negocio.</span>
+              Construimos<br />el software de<br /><span className="shimmer-green">tu negocio.</span>
             </h1>
 
             <p className="anim-up" style={{
-              fontSize: 18, color: "rgba(255,255,255,0.5)", lineHeight: 1.75,
+              fontSize: "clamp(15px, 2vw, 18px)", color: "rgba(255,255,255,0.5)", lineHeight: 1.75,
               maxWidth: 420, animationDelay: "0.2s", fontWeight: 400,
             }}>
               Sistemas de gestión a medida para negocios de servicios. Soluciones reales, sin complejidad innecesaria.
             </p>
           </div>
         </div>
+
+        {/* Flecha scroll-down */}
+        <div className="bounce-y" style={{
+          position: "absolute", bottom: 32, left: "50%",
+          zIndex: 10, pointerEvents: "none",
+        }}>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
       </section>
 
       {/* ── STATS BAR ────────────────────────────────────────── */}
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.01)" }}>
-        <div className="stats-bar sr" style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 40px", display: "grid", gridTemplateColumns: "repeat(4,1fr)", textAlign: "center" as const }}>
+        <div className="stats-bar stats-inner sr" style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", textAlign: "center" as const }}>
           {[
             { value: "1",    label: "Producto activo" },
             { value: "+8",   label: "Rubros cubiertos" },
@@ -172,7 +178,7 @@ export default function FlowixAgency() {
             { value: "ARG",  label: "Desarrollo local" },
           ].map((s, i) => (
             <div key={i} style={{ padding: "0 24px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.05)" : undefined }}>
-              <p style={{ margin: 0, fontSize: 32, fontWeight: 800, letterSpacing: "-1.5px", color: G }}>{s.value}</p>
+              <p style={{ margin: 0, fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 800, letterSpacing: "-1.5px", color: G }}>{s.value}</p>
               <p style={{ margin: "6px 0 0", fontSize: 13, color: "#444" }}>{s.label}</p>
             </div>
           ))}
@@ -180,10 +186,10 @@ export default function FlowixAgency() {
       </div>
 
       {/* ── PRODUCTOS ────────────────────────────────────────── */}
-      <section id="productos" style={{ padding: "110px 40px", maxWidth: 1200, margin: "0 auto" }}>
+      <section id="productos" className="section-pad" style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div className="sr" style={{ marginBottom: 68 }}>
           <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Nuestros productos</p>
-          <h2 style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, maxWidth: 580 }}>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, maxWidth: 580 }}>
             Software diseñado<br />para cada rubro.
           </h2>
           <p style={{ color: "#6b6b6b", fontSize: 17, lineHeight: 1.75, marginTop: 18, maxWidth: 500 }}>
@@ -194,19 +200,22 @@ export default function FlowixAgency() {
         <div className="products-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
 
           {/* Card 1 — producto activo */}
-          <div className="product-card sr" style={{
-            background: "rgba(0,204,106,0.04)", border: "1px solid rgba(0,204,106,0.14)",
+          <div className="product-card glow-card sr" style={{
+            background: "rgba(0,204,106,0.04)",
             borderRadius: 24, padding: 40, position: "relative", overflow: "hidden",
-            boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
           }}>
             <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: `radial-gradient(circle, rgba(0,204,106,0.08) 0%, transparent 65%)`, pointerEvents: "none" }} />
 
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(0,204,106,0.1)", border: "1px solid rgba(0,204,106,0.2)", borderRadius: 20, padding: "5px 14px", marginBottom: 28, fontSize: 11, fontWeight: 700, color: G, letterSpacing: "0.04em" }}>
+            <div className="pulse-badge" style={{
+              display: "inline-flex", alignItems: "center", gap: 7,
+              background: "rgba(0,204,106,0.1)", border: "1px solid rgba(0,204,106,0.2)",
+              borderRadius: 20, padding: "5px 14px", marginBottom: 28, fontSize: 11, fontWeight: 700, color: G, letterSpacing: "0.04em",
+            }}>
               <span style={{ width: 5, height: 5, borderRadius: "50%", background: G, display: "inline-block" }} />
               Disponible ahora
             </div>
 
-            <h3 style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-1px", marginBottom: 14, lineHeight: 1.1 }}>
+            <h3 style={{ fontSize: "clamp(22px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1px", marginBottom: 14, lineHeight: 1.1 }}>
               Suite de gestión<br />para servicios
             </h3>
             <p style={{ fontSize: 15, color: "#6b6b6b", lineHeight: 1.75, marginBottom: 28 }}>
@@ -219,7 +228,7 @@ export default function FlowixAgency() {
               ))}
             </div>
 
-            {/* Preview */}
+            {/* Preview agenda */}
             <div style={{ background: "rgba(0,0,0,0.5)", borderRadius: 14, padding: 16, border: "1px solid rgba(255,255,255,0.06)", marginBottom: 36 }}>
               <p style={{ fontSize: 9, color: "#333", marginBottom: 10, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.1em" }}>Vista previa — Agenda</p>
               {[
@@ -259,14 +268,13 @@ export default function FlowixAgency() {
                 Próximamente
               </div>
 
-              <h3 style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-1px", marginBottom: 14, lineHeight: 1.1, color: "#555" }}>
+              <h3 style={{ fontSize: "clamp(22px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1px", marginBottom: 14, lineHeight: 1.1, color: "#555" }}>
                 Más verticales<br />en camino
               </h3>
               <p style={{ fontSize: 15, color: "#3a3a3a", lineHeight: 1.75, marginBottom: 36 }}>
                 Estamos desarrollando soluciones para nuevos rubros. Si tenés un negocio de servicios y necesitás un sistema a medida, podemos construirlo juntos.
               </p>
 
-              {/* Placeholder dots */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 36 }}>
                 {["Próximo vertical", "En desarrollo", "Nuevo rubro", "Por definir"].map((l, i) => (
                   <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 10, padding: "14px 16px" }}>
@@ -291,11 +299,11 @@ export default function FlowixAgency() {
       </section>
 
       {/* ── POR QUÉ FLOWIX ───────────────────────────────────── */}
-      <section id="por-que" style={{ padding: "110px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <section id="por-que" className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="sr" style={{ marginBottom: 68 }}>
             <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Por qué elegirnos</p>
-            <h2 style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, maxWidth: 520 }}>
+            <h2 style={{ fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, maxWidth: 520 }}>
               Software que entiende<br />tu negocio.
             </h2>
           </div>
@@ -318,22 +326,22 @@ export default function FlowixAgency() {
       </section>
 
       {/* ── CTA FINAL ────────────────────────────────────────── */}
-      <section id="contacto" style={{ padding: "110px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <section id="contacto" className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div className="sr" style={{
+          <div className="cta-box sr" style={{
             background: "linear-gradient(135deg, rgba(0,204,106,0.06) 0%, rgba(0,0,0,0) 60%)",
             border: "1px solid rgba(0,204,106,0.12)", borderRadius: 28,
-            padding: "90px 64px", textAlign: "center" as const, position: "relative", overflow: "hidden",
+            textAlign: "center" as const, position: "relative", overflow: "hidden",
           }}>
             <div aria-hidden style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 400, background: `radial-gradient(ellipse, rgba(0,204,106,0.07) 0%, transparent 65%)`, pointerEvents: "none" }} />
             <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 20, position: "relative" }}>¿No encontrás tu rubro?</p>
-            <h2 style={{ fontSize: "clamp(30px, 4.5vw, 60px)", fontWeight: 800, letterSpacing: "-3px", lineHeight: 1.02, marginBottom: 22, position: "relative" }}>
+            <h2 style={{ fontSize: "clamp(26px, 4.5vw, 60px)", fontWeight: 800, letterSpacing: "-3px", lineHeight: 1.02, marginBottom: 22, position: "relative" }}>
               Construimos lo que<br />tu negocio necesita.
             </h2>
             <p style={{ fontSize: 17, color: "#6b6b6b", lineHeight: 1.75, maxWidth: 460, margin: "0 auto 48px", position: "relative" }}>
               Si tenés un negocio de servicios y necesitás un sistema a medida, hablemos. Analizamos tu caso sin compromiso.
             </p>
-            <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", position: "relative" }}>
+            <div className="cta-buttons">
               <a href={WA} target="_blank" rel="noopener noreferrer" style={{ background: G, color: "#000", fontWeight: 700, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12 }}>
                 Contactar por WhatsApp
               </a>
@@ -346,7 +354,7 @@ export default function FlowixAgency() {
       </section>
 
       {/* ── FOOTER ───────────────────────────────────────────── */}
-      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "60px 40px 36px" }}>
+      <footer className="footer-outer" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 52, marginBottom: 48 }}>
             <div>
@@ -384,7 +392,7 @@ export default function FlowixAgency() {
             </div>
           </div>
 
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 28, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+          <div className="footer-bottom">
             <span style={{ color: "#333", fontSize: 13 }}>© 2026 Flowix. Todos los derechos reservados.</span>
             <span style={{ color: "#222", fontSize: 13 }}>Hecho en Argentina 🇦🇷</span>
           </div>
