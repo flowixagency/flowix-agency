@@ -44,12 +44,39 @@ body { background: #000; color: #fff; }
   from { transform: rotate(0deg); }
   to   { transform: rotate(-360deg); }
 }
+@keyframes dash-float {
+  0%, 100% { transform: perspective(1200px) rotateY(-16deg) rotateX(5deg) translateY(0px); }
+  33%       { transform: perspective(1200px) rotateY(-13deg) rotateX(7deg) translateY(-14px); }
+  66%       { transform: perspective(1200px) rotateY(-18deg) rotateX(4deg) translateY(-8px); }
+}
+@keyframes bar-grow {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+@keyframes slide-in-row {
+  from { opacity: 0; transform: translateX(8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
 
 /* ─── ORB RINGS (usado en HeroFallback) ──────────────────────── */
 .orb-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(0,204,106,0.13); }
 .orb-ring-1 { animation: orb-rotate     12s linear infinite; }
 .orb-ring-2 { animation: orb-rotate-rev 18s linear infinite; }
 .orb-ring-3 { animation: orb-rotate     28s linear infinite; }
+
+/* ─── DASHBOARD 3D (hero mockup) ─────────────────────────────── */
+.dash-3d {
+  animation: dash-float 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.bar-grow { animation: bar-grow 0.9s ease both; transform-origin: bottom; }
+.dot-blink { animation: dot-blink 1.4s ease-in-out infinite; }
+.slide-row { animation: slide-in-row 0.6s ease both; }
 
 /* ─── BASE ANIMATION CLASSES ─────────────────────────────────── */
 .float   { animation: float 6s ease-in-out infinite; }
@@ -135,6 +162,13 @@ body { background: #000; color: #fff; }
   .diff-grid     { grid-template-columns: 1fr 1fr !important; }
   .footer-grid   { grid-template-columns: 1fr 1fr !important; }
   .stats-bar     { grid-template-columns: 1fr 1fr !important; }
+  /* Hero: columna única, mockup debajo */
+  .hero-grid     { grid-template-columns: 1fr !important; }
+  .hero-mockup   { display: none !important; }
+  /* Pain points: columna única */
+  .pain-grid     { grid-template-columns: 1fr !important; }
+  /* Steps: 2 columnas en tablet */
+  .steps-grid    { grid-template-columns: 1fr 1fr !important; }
 }
 
 /* ─── RESPONSIVE — 700px ─────────────────────────────────────── */
@@ -162,6 +196,8 @@ body { background: #000; color: #fff; }
 
 /* ─── RESPONSIVE — 600px ─────────────────────────────────────── */
 @media (max-width: 600px) {
-  .diff-grid { grid-template-columns: 1fr !important; }
-  .stats-bar { grid-template-columns: 1fr 1fr !important; }
+  .diff-grid  { grid-template-columns: 1fr !important; }
+  .stats-bar  { grid-template-columns: 1fr 1fr !important; }
+  .steps-grid { grid-template-columns: 1fr !important; }
+  .pain-grid  { grid-template-columns: 1fr !important; }
 }
