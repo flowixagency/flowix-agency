@@ -27,7 +27,8 @@ const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 const WA          = `https://wa.me/5491126730927?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20Flowix.`;
 const WA_MARKETING= `https://wa.me/5491169215257?text=Hola!%20Me%20interesa%20el%20marketing%20de%20Flowix%20para%20mi%20negocio.%20%C2%BFMe%20pod%C3%A9s%20contar%20m%C3%A1s%3F`;
 const WA_SOPORTE  = `https://wa.me/5491133383949?text=Hola!%20Necesito%20asistencia%20t%C3%A9cnica%20con%20Flowix.%20%C2%BFMe%20pod%C3%A9s%20ayudar%3F`;
-const SALON_URL = "https://flowix-landing-six.vercel.app";
+const SALON_URL  = "https://flowix-landing-six.vercel.app";
+const SALUD_URL  = "https://flowix-salud.vercel.app";
 
 const differentiators = [
   {
@@ -413,12 +414,14 @@ export default function FlowixAgency() {
           </p>
         </div>
 
-        <div className="products-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+        {/* Fila 1 — Flowix Book + Flowix Salud */}
+        <div className="products-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
 
-          {/* Card 1 — producto activo */}
+          {/* Flowix Book */}
           <div className="product-card glow-card sr" style={{
-            background: "rgba(0,204,106,0.04)",
+            background: "rgba(0,204,106,0.04)", border: "1px solid rgba(0,204,106,0.12)",
             borderRadius: 24, padding: 40, position: "relative", overflow: "hidden",
+            display: "flex", flexDirection: "column" as const,
           }}>
             <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: `radial-gradient(circle, rgba(0,204,106,0.08) 0%, transparent 65%)`, pointerEvents: "none" }} />
 
@@ -444,7 +447,7 @@ export default function FlowixAgency() {
               ))}
             </div>
 
-            <div style={{ background: "rgba(0,0,0,0.5)", borderRadius: 14, padding: 16, border: "1px solid rgba(255,255,255,0.06)", marginBottom: 36 }}>
+            <div style={{ background: "rgba(0,0,0,0.5)", borderRadius: 14, padding: 16, border: "1px solid rgba(255,255,255,0.06)", marginBottom: 36, flex: 1 }}>
               <p style={{ fontSize: 9, color: "#333", marginBottom: 10, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.1em" }}>Vista previa — Agenda</p>
               {[
                 { time: "09:00", name: "Matías G.", service: "Corte + barba",  color: G },
@@ -471,63 +474,100 @@ export default function FlowixAgency() {
             </a>
           </div>
 
-          {/* Card 2 — roadmap */}
+          {/* Flowix Salud */}
           <div className="product-card sr" style={{
-            background: "rgba(255,255,255,0.015)", border: "1px solid rgba(255,255,255,0.07)",
-            borderRadius: 24, padding: 40, display: "flex", flexDirection: "column" as const,
-            justifyContent: "space-between", transitionDelay: "0.1s",
+            background: "rgba(96,165,250,0.03)", border: "1px solid rgba(96,165,250,0.14)",
+            borderRadius: 24, padding: 40, position: "relative", overflow: "hidden",
+            display: "flex", flexDirection: "column" as const, transitionDelay: "0.1s",
           }}>
-            <div>
-              {/* Flowix Salud */}
-              <div style={{ marginBottom: 32 }}>
-                <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.18)", borderRadius: 20, padding: "5px 14px", marginBottom: 18, fontSize: 11, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.04em" }}>
-                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#60a5fa", display: "inline-block" }} />
-                  En desarrollo
-                </div>
-                <h3 style={{ fontSize: "clamp(20px, 2.2vw, 26px)", fontWeight: 800, letterSpacing: "-0.8px", marginBottom: 10, lineHeight: 1.1 }}>
-                  Flowix Salud
-                </h3>
-                <p style={{ fontSize: 14, color: "#555", lineHeight: 1.7, marginBottom: 14 }}>
-                  Sistema de gestión para centros de salud y bienestar. Con historia clínica, notas por sesión y planes de tratamiento.
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                  {["Kinesiología", "Quiropraxia", "Psicología", "Nutrición", "Estética médica"].map(n => (
-                    <span key={n} style={{ background: "rgba(96,165,250,0.06)", border: "1px solid rgba(96,165,250,0.12)", borderRadius: 7, padding: "3px 10px", fontSize: 11, color: "#4a7fa5" }}>{n}</span>
-                  ))}
-                </div>
-              </div>
+            <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: "radial-gradient(circle, rgba(96,165,250,0.07) 0%, transparent 65%)", pointerEvents: "none" }} />
 
-              {/* Flowix Deporte */}
-              <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 24 }}>
-                <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(167,139,250,0.06)", border: "1px solid rgba(167,139,250,0.14)", borderRadius: 20, padding: "5px 14px", marginBottom: 18, fontSize: 11, fontWeight: 700, color: "#a78bfa", letterSpacing: "0.04em" }}>
-                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#a78bfa", display: "inline-block" }} />
-                  Roadmap
-                </div>
-                <h3 style={{ fontSize: "clamp(18px, 2vw, 22px)", fontWeight: 800, letterSpacing: "-0.6px", marginBottom: 10, lineHeight: 1.1, color: "#888" }}>
-                  Flowix Deporte
-                </h3>
-                <p style={{ fontSize: 14, color: "#3a3a3a", lineHeight: 1.7, marginBottom: 14 }}>
-                  Sistema de gestión para espacios deportivos. Control de asistencia, membresías, clases y seguimiento de alumnos.
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                  {["Gimnasios", "Pilates", "Yoga", "Crossfit", "Academias deportivas"].map(n => (
-                    <span key={n} style={{ background: "rgba(167,139,250,0.05)", border: "1px solid rgba(167,139,250,0.12)", borderRadius: 7, padding: "3px 10px", fontSize: 11, color: "#6a5fa5" }}>{n}</span>
-                  ))}
-                </div>
-              </div>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 7,
+              background: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.2)",
+              borderRadius: 20, padding: "5px 14px", marginBottom: 28, fontSize: 11, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.04em",
+            }}>
+              <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#60a5fa", display: "inline-block" }} />
+              En desarrollo
             </div>
 
-            <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-              display: "inline-flex", alignItems: "center", gap: 8, marginTop: 32,
-              background: "rgba(255,255,255,0.05)", color: "#777", fontWeight: 600, fontSize: 14,
+            <h3 style={{ fontSize: "clamp(22px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1px", marginBottom: 14, lineHeight: 1.1 }}>
+              Flowix Salud
+            </h3>
+            <p style={{ fontSize: 15, color: "#6b6b6b", lineHeight: 1.75, marginBottom: 28 }}>
+              Sistema para centros de salud y bienestar. Historia clínica digital, planes de tratamiento y agenda en un solo lugar.
+            </p>
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginBottom: 36 }}>
+              {["Kinesiología", "Quiropraxia", "Psicología", "Nutrición", "Estética médica"].map(n => (
+                <span key={n} style={{ background: "rgba(96,165,250,0.06)", border: "1px solid rgba(96,165,250,0.12)", borderRadius: 8, padding: "4px 12px", fontSize: 12, color: "#4a7fa5" }}>{n}</span>
+              ))}
+            </div>
+
+            {/* Mini mockup — Paciente */}
+            <div style={{ background: "rgba(0,0,0,0.5)", borderRadius: 14, padding: 16, border: "1px solid rgba(255,255,255,0.06)", marginBottom: 36, flex: 1 }}>
+              <p style={{ fontSize: 9, color: "#333", marginBottom: 10, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.1em" }}>Vista previa — Paciente</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10, padding: "8px 10px", background: "rgba(96,165,250,0.05)", borderRadius: 9, border: "1px solid rgba(96,165,250,0.1)" }}>
+                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "rgba(96,165,250,0.15)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "#60a5fa", flexShrink: 0 }}>M</div>
+                <div>
+                  <p style={{ margin: 0, fontSize: 11, fontWeight: 600 }}>María González</p>
+                  <p style={{ margin: 0, fontSize: 9, color: "#555" }}>Lumbalgia L4-L5</p>
+                </div>
+                <span style={{ marginLeft: "auto", fontSize: 10, color: "#60a5fa", fontWeight: 700 }}>Ses. 7/12</span>
+              </div>
+              <div style={{ height: 3, background: "rgba(255,255,255,0.05)", borderRadius: 3, overflow: "hidden", marginBottom: 10 }}>
+                <div style={{ width: "58%", height: "100%", background: "#60a5fa", borderRadius: 3 }} />
+              </div>
+              <p style={{ margin: 0, fontSize: 10, color: "#555", lineHeight: 1.5 }}>
+                <span style={{ color: "#3a3a3a" }}>Última nota:</span> Mejora en flexión lumbar. Continuar ejercicios de estabilización core.
+              </p>
+            </div>
+
+            <a href={SALUD_URL} target="_blank" rel="noopener noreferrer" style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: "#60a5fa", color: "#000", fontWeight: 700, fontSize: 14,
               textDecoration: "none", padding: "13px 28px", borderRadius: 10,
-              border: "1px solid rgba(255,255,255,0.09)",
             }}>
-              Quiero saber más →
+              Ver landing →
             </a>
           </div>
 
         </div>
+
+        {/* Fila 2 — Flowix Deporte (horizontal, roadmap) */}
+        <div className="product-card sr" style={{
+          background: "rgba(167,139,250,0.02)", border: "1px solid rgba(167,139,250,0.1)",
+          borderRadius: 24, padding: "32px 40px",
+          display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "center", gap: 36,
+          transitionDelay: "0.15s",
+        }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(167,139,250,0.06)", border: "1px solid rgba(167,139,250,0.14)", borderRadius: 20, padding: "5px 14px", fontSize: 11, fontWeight: 700, color: "#a78bfa", letterSpacing: "0.04em", whiteSpace: "nowrap" as const }}>
+            <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#a78bfa", display: "inline-block" }} />
+            Roadmap
+          </div>
+          <div>
+            <h3 style={{ fontSize: "clamp(18px, 2vw, 22px)", fontWeight: 800, letterSpacing: "-0.6px", marginBottom: 6, lineHeight: 1.1, color: "#888" }}>
+              Flowix Deporte
+            </h3>
+            <p style={{ fontSize: 13, color: "#3a3a3a", lineHeight: 1.6, margin: "0 0 12px" }}>
+              Sistema de gestión para espacios deportivos. Control de asistencia, membresías, clases y seguimiento de alumnos.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+              {["Gimnasios", "Pilates", "Yoga", "Crossfit", "Academias deportivas"].map(n => (
+                <span key={n} style={{ background: "rgba(167,139,250,0.04)", border: "1px solid rgba(167,139,250,0.1)", borderRadius: 7, padding: "3px 10px", fontSize: 11, color: "#6a5fa5" }}>{n}</span>
+              ))}
+            </div>
+          </div>
+          <a href={WA} target="_blank" rel="noopener noreferrer" style={{
+            display: "inline-flex", alignItems: "center", gap: 8, whiteSpace: "nowrap" as const,
+            background: "rgba(255,255,255,0.04)", color: "#666", fontWeight: 600, fontSize: 13,
+            textDecoration: "none", padding: "11px 22px", borderRadius: 10,
+            border: "1px solid rgba(255,255,255,0.07)",
+          }}>
+            Avisarme →
+          </a>
+        </div>
+
       </section>
 
       {/* ── CÓMO TRABAJAMOS ──────────────────────────────────── */}
