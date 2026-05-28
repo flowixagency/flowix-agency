@@ -201,3 +201,14 @@ body { background: #000; color: #fff; }
   .steps-grid { grid-template-columns: 1fr !important; }
   .pain-grid  { grid-template-columns: 1fr !important; }
 }
+
+/* ─── FAQ ────────────────────────────────────────────────────── */
+.faq-item summary { list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-arrow { transition: transform 0.22s ease; display: inline-block; }
+.faq-item[open] .faq-arrow { transform: rotate(45deg); }
+
+/* ─── ABOUT / QUIÉNES SOMOS ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr !important; }
+}
