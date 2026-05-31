@@ -4,17 +4,16 @@ const G = "#00CC6A";
 
 type FVal = boolean | string;
 const tableFeatures: { name: string; base: FVal; pro: FVal; elite: FVal }[] = [
-  { name: "Gestión de agenda / turnos",  base: true,  pro: true,  elite: true  },
-  { name: "Base de clientes / pacientes",base: true,  pro: true,  elite: true  },
+  { name: "Agenda de turnos",            base: true,  pro: true,  elite: true  },
+  { name: "Base de clientes + historial",base: true,  pro: true,  elite: true  },
   { name: "Caja y cobros",               base: true,  pro: true,  elite: true  },
-  { name: "Reportes básicos",            base: true,  pro: true,  elite: true  },
-  { name: "Módulos avanzados",           base: false, pro: true,  elite: true  },
-  { name: "Reportes avanzados",          base: false, pro: true,  elite: true  },
+  { name: "Reportes",                    base: true,  pro: true,  elite: true  },
+  { name: "Inventario + gestión del local",base: false,pro: true, elite: true  },
+  { name: "Reservas online",             base: false, pro: true,  elite: true  },
   { name: "Profesionales / usuarios",    base: "2",   pro: "5",   elite: "∞"   },
+  { name: "Recordatorios WhatsApp",      base: false, pro: false, elite: true  },
+  { name: "Exportar reportes PDF",       base: false, pro: false, elite: true  },
   { name: "Soporte prioritario",         base: false, pro: false, elite: true  },
-  { name: "Automatizaciones",            base: false, pro: false, elite: true  },
-  { name: "Web del negocio incluida",    base: false, pro: false, elite: true  },
-  { name: "Acceso anticipado a novedades",base: false,pro: false, elite: true  },
 ];
 
 function PlanCell({ val, color }: { val: FVal; color: string }) {
