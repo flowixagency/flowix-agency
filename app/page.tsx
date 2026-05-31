@@ -724,10 +724,13 @@ export default function FlowixAgency() {
                   <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(0,204,106,0.05)", fontWeight: "normal" as const, borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}`, borderTop: `2px solid ${G}`, position: "relative" as const }}>
                     <div style={{ position: "absolute" as const, top: -1, left: "50%", transform: "translateX(-50%)", background: G, color: "#000", fontSize: 10, fontWeight: 800, padding: "4px 14px", borderRadius: "0 0 10px 10px", letterSpacing: "0.07em", whiteSpace: "nowrap" as const }}>MÁS ELEGIDO</div>
                     <p style={{ margin: "14px 0 8px", fontSize: 16, fontWeight: 700, color: G }}>Pro</p>
-                    <p style={{ margin: "0 0 22px" }}>
+                    <p style={{ margin: "0 0 10px" }}>
                       <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-2px", color: G }}>$45.000</span>
                       <span style={{ fontSize: 13, color: "#444" }}>/mes</span>
                     </p>
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(0,204,106,0.12)", border: "1px solid rgba(0,204,106,0.25)", borderRadius: 20, padding: "4px 12px", fontSize: 11, color: G, fontWeight: 700, marginBottom: 16 }}>
+                      ✦ 7 días de prueba gratis
+                    </div>
                     <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: G, color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 16px", borderRadius: 10 }}>Empezar</a>
                   </th>
                   {/* ELITE */}
