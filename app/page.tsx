@@ -535,7 +535,7 @@ export default function FlowixAgency() {
         </div>
 
         {/* Fila 2 — Flowix Deporte (horizontal, roadmap) */}
-        <div className="product-card sr" style={{
+        <div className="product-card deporte-card sr" style={{
           background: "rgba(167,139,250,0.02)", border: "1px solid rgba(167,139,250,0.1)",
           borderRadius: 24, padding: "32px 40px",
           display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "center", gap: 36,
@@ -558,7 +558,7 @@ export default function FlowixAgency() {
               ))}
             </div>
           </div>
-          <a href={WA} target="_blank" rel="noopener noreferrer" style={{
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="deporte-btn" style={{
             display: "inline-flex", alignItems: "center", gap: 8, whiteSpace: "nowrap" as const,
             background: "rgba(255,255,255,0.04)", color: "#666", fontWeight: 600, fontSize: 13,
             textDecoration: "none", padding: "11px 22px", borderRadius: 10,
