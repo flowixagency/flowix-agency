@@ -911,7 +911,7 @@ export default function FlowixAgency() {
           <div className="footer-bottom">
             <span style={{ color: "#333", fontSize: 13 }}>© 2026 Flowix. Todos los derechos reservados.</span>
             <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-              <a href="/terminos" style={{ color: "#333", fontSize: 13, textDecoration: "none" }}>Términos y condiciones</a>
+              <a href="/terminos" style={{ color: "#555", fontSize: 13, textDecoration: "none" }}>Términos y condiciones</a>
               <span style={{ color: "#222", fontSize: 13 }}>Hecho en Argentina 🇦🇷</span>
             </div>
           </div>
