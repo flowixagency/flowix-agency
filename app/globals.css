@@ -21,8 +21,8 @@ body { background: #000; color: #fff; }
   50%       { box-shadow: 0 0 0 9px rgba(0,204,106,0.13); }
 }
 @keyframes border-glow {
-  0%, 100% { border-color: rgba(0,204,106,0.14); box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
-  50%       { border-color: rgba(0,204,106,0.4);  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 70px rgba(0,204,106,0.09); }
+  0%, 100% { border-color: rgba(0,204,106,0.22); box-shadow: 0 8px 40px rgba(0,0,0,0.4); }
+  50%       { border-color: rgba(0,204,106,0.5);  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 70px rgba(0,204,106,0.16); }
 }
 @keyframes bounce-y {
   0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.35; }
@@ -136,13 +136,13 @@ body { background: #000; color: #fff; }
 .product-card { transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
 .product-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(0,204,106,0.28) !important;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 40px rgba(0,204,106,0.06) !important;
+  border-color: rgba(0,204,106,0.45) !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 50px rgba(0,204,106,0.14) !important;
 }
 
 /* ─── DIFF CARDS ─────────────────────────────────────────────── */
 .diff-card { transition: background 0.2s ease, border-color 0.2s ease; }
-.diff-card:hover { background: rgba(255,255,255,0.035) !important; border-color: rgba(255,255,255,0.1) !important; }
+.diff-card:hover { background: rgba(255,255,255,0.07) !important; border-color: rgba(255,255,255,0.15) !important; }
 
 /* ─── FOOTER LINKS ───────────────────────────────────────────── */
 .footer-link { transition: color 0.15s ease; }
