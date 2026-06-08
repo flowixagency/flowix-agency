@@ -74,13 +74,15 @@ const APPOINTMENTS = [
 
 export default function FlowixAgency() {
   return (
-    <main style={{ fontFamily: "'Outfit', system-ui, sans-serif", color: "#fff", background: "#000", overflowX: "hidden" }}>
+    <main style={{ fontFamily: "'Outfit', system-ui, sans-serif", color: "#fff", background: "#050508", overflowX: "hidden" }}>
 
       {/* Grain */}
       <div aria-hidden style={{ position: "fixed", inset: 0, backgroundImage: GRAIN, opacity: 0.022, pointerEvents: "none", zIndex: 9999 }} />
 
       {/* Premium bg glow — fijo, siempre visible */}
-      <div aria-hidden style={{ position: "fixed", top: 0, left: 0, right: 0, height: "90vh", background: "radial-gradient(ellipse 100% 70% at 50% 0%, rgba(0,204,106,0.13) 0%, transparent 65%)", pointerEvents: "none", zIndex: 0 }} />
+      <div aria-hidden style={{ position: "fixed", top: 0, left: 0, right: 0, height: "90vh", background: "radial-gradient(ellipse 100% 70% at 50% 0%, rgba(0,204,106,0.28) 0%, transparent 65%)", pointerEvents: "none", zIndex: 0 }} />
+      {/* Ambient glow secundario — profundidad */}
+      <div aria-hidden style={{ position: "fixed", bottom: 0, right: "-10%", width: "55vw", height: "55vh", background: "radial-gradient(ellipse, rgba(0,150,255,0.05) 0%, transparent 65%)", pointerEvents: "none", zIndex: 0 }} />
 
       {/* ── NAV ──────────────────────────────────────────────── */}
       <nav style={{
@@ -120,7 +122,7 @@ export default function FlowixAgency() {
         padding: "80px 40px",
       }}>
         {/* Dot grid */}
-        <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "radial-gradient(ellipse 85% 85% at 50% 40%, #000 20%, transparent 75%)", WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 40%, #000 20%, transparent 75%)", pointerEvents: "none", zIndex: 1 }} />
+        <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)", backgroundSize: "24px 24px", maskImage: "radial-gradient(ellipse 90% 90% at 50% 40%, #000 10%, transparent 70%)", WebkitMaskImage: "radial-gradient(ellipse 90% 90% at 50% 40%, #000 10%, transparent 70%)", pointerEvents: "none", zIndex: 1 }} />
 
         {/* Fondo glow */}
         <div aria-hidden style={{ position: "absolute", top: "30%", right: "5%", width: 800, height: 800, background: "radial-gradient(circle, rgba(0,204,106,0.16) 0%, transparent 60%)", pointerEvents: "none" }} />
@@ -304,7 +306,7 @@ export default function FlowixAgency() {
       </div>
 
       {/* ── DEMO DEL SISTEMA ─────────────────────────────────── */}
-      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "#08080f" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="sr" style={{ marginBottom: 48, textAlign: "center" as const }}>
             <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>En acción</p>
@@ -576,7 +578,7 @@ export default function FlowixAgency() {
       </section>
 
       {/* ── CÓMO TRABAJAMOS ──────────────────────────────────── */}
-      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "#08080f" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="sr" style={{ marginBottom: 68, textAlign: "center" as const }}>
             <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Cómo trabajamos</p>
@@ -788,7 +790,7 @@ export default function FlowixAgency() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "#08080f" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <div className="sr" style={{ marginBottom: 52, textAlign: "center" as const }}>
             <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>FAQ</p>
