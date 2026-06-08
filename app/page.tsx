@@ -79,6 +79,9 @@ export default function FlowixAgency() {
       {/* Grain */}
       <div aria-hidden style={{ position: "fixed", inset: 0, backgroundImage: GRAIN, opacity: 0.022, pointerEvents: "none", zIndex: 9999 }} />
 
+      {/* Premium bg glow — fijo, siempre visible */}
+      <div aria-hidden style={{ position: "fixed", top: 0, left: 0, right: 0, height: "90vh", background: "radial-gradient(ellipse 100% 70% at 50% 0%, rgba(0,204,106,0.13) 0%, transparent 65%)", pointerEvents: "none", zIndex: 0 }} />
+
       {/* ── NAV ──────────────────────────────────────────────── */}
       <nav style={{
         position: "sticky", top: 0, zIndex: 50,
@@ -105,7 +108,7 @@ export default function FlowixAgency() {
         </div>
 
         <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-          background: G, color: "#000", fontSize: 14, fontWeight: 700,
+          background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontSize: 14, fontWeight: 700,
           textDecoration: "none", padding: "10px 24px", borderRadius: 10,
         }}>Hablemos</a>
       </nav>
@@ -116,6 +119,9 @@ export default function FlowixAgency() {
         position: "relative", overflow: "hidden",
         padding: "80px 40px",
       }}>
+        {/* Dot grid */}
+        <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "radial-gradient(ellipse 85% 85% at 50% 40%, #000 20%, transparent 75%)", WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 40%, #000 20%, transparent 75%)", pointerEvents: "none", zIndex: 1 }} />
+
         {/* Fondo glow */}
         <div aria-hidden style={{ position: "absolute", top: "30%", right: "5%", width: 800, height: 800, background: "radial-gradient(circle, rgba(0,204,106,0.16) 0%, transparent 60%)", pointerEvents: "none" }} />
         <div aria-hidden style={{ position: "absolute", top: "60%", left: "-10%", width: 600, height: 600, background: "radial-gradient(circle, rgba(0,204,106,0.09) 0%, transparent 65%)", pointerEvents: "none" }} />
@@ -153,7 +159,7 @@ export default function FlowixAgency() {
 
             <div className="anim-up" style={{ display: "flex", gap: 14, flexWrap: "wrap", animationDelay: "0.3s" }}>
               <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-                background: G, color: "#000", fontWeight: 700, fontSize: 15,
+                background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 15,
                 textDecoration: "none", padding: "14px 32px", borderRadius: 12,
               }}>Hablemos →</a>
               <a href={SALON_URL} target="_blank" rel="noopener noreferrer" style={{
@@ -281,7 +287,7 @@ export default function FlowixAgency() {
       </section>
 
       {/* ── STATS BAR ────────────────────────────────────────── */}
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.01)" }}>
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}>
         <div className="stats-bar stats-inner sr" style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", textAlign: "center" as const }}>
           {[
             { value: "1",    label: "Producto activo" },
@@ -466,7 +472,7 @@ export default function FlowixAgency() {
 
             <a href={SALON_URL} target="_blank" rel="noopener noreferrer" style={{
               display: "inline-flex", alignItems: "center", gap: 8,
-              background: G, color: "#000", fontWeight: 700, fontSize: 14,
+              background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 14,
               textDecoration: "none", padding: "13px 28px", borderRadius: 10,
             }}>
               Ver producto →
@@ -731,7 +737,7 @@ export default function FlowixAgency() {
                     <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(0,204,106,0.12)", border: "1px solid rgba(0,204,106,0.25)", borderRadius: 20, padding: "4px 12px", fontSize: 11, color: G, fontWeight: 700, marginBottom: 16 }}>
                       ✦ 7 días de prueba gratis
                     </div>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: G, color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 16px", borderRadius: 10 }}>Empezar</a>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 16px", borderRadius: 10 }}>Empezar</a>
                   </th>
                   {/* ELITE */}
                   <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(167,139,250,0.04)", fontWeight: "normal" as const }}>
@@ -765,7 +771,7 @@ export default function FlowixAgency() {
                     <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "rgba(255,255,255,0.06)", color: "#888", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 24px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.08)" }}>Empezar</a>
                   </td>
                   <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(0,204,106,0.04)", borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}`, borderBottom: `2px solid ${G}` }}>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: G, color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 28px", borderRadius: 10 }}>Empezar</a>
+                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 28px", borderRadius: 10 }}>Empezar</a>
                   </td>
                   <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(167,139,250,0.03)" }}>
                     <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "rgba(167,139,250,0.1)", color: "#a78bfa", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 24px", borderRadius: 10, border: "1px solid rgba(167,139,250,0.2)" }}>Contactar</a>
@@ -859,7 +865,7 @@ export default function FlowixAgency() {
               Si tenés un negocio de servicios y necesitás un sistema a medida, hablemos. Analizamos tu caso sin compromiso.
             </p>
             <div className="cta-buttons">
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ background: G, color: "#000", fontWeight: 700, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12 }}>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12 }}>
                 Contactar por WhatsApp
               </a>
               <a href="https://www.instagram.com/flowixagency/" target="_blank" rel="noopener noreferrer" style={{ background: "rgba(255,255,255,0.05)", color: "#ccc", fontWeight: 500, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)" }}>
