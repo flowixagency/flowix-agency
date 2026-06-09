@@ -2,25 +2,7 @@ import ScrollReveal from "./components/ScrollReveal";
 
 const G = "#00CC6A";
 
-type FVal = boolean | string;
-const tableFeatures: { name: string; base: FVal; pro: FVal; elite: FVal }[] = [
-  { name: "Agenda de turnos",            base: true,  pro: true,  elite: true  },
-  { name: "Base de clientes + historial",base: true,  pro: true,  elite: true  },
-  { name: "Caja y cobros",               base: true,  pro: true,  elite: true  },
-  { name: "Reportes",                    base: true,  pro: true,  elite: true  },
-  { name: "Inventario + gestión del local",base: false,pro: true, elite: true  },
-  { name: "Reservas online",             base: false, pro: true,  elite: true  },
-  { name: "Profesionales / usuarios",    base: "2",   pro: "5",   elite: "∞"   },
-  { name: "Recordatorios WhatsApp",      base: false, pro: false, elite: true  },
-  { name: "Exportar reportes PDF",       base: false, pro: false, elite: true  },
-  { name: "Soporte prioritario",         base: false, pro: false, elite: true  },
-];
 
-function PlanCell({ val, color }: { val: FVal; color: string }) {
-  if (typeof val === "string") return <span style={{ fontWeight: 700, fontSize: 16, color }}>{val}</span>;
-  if (val) return <span style={{ color, fontWeight: 700, fontSize: 18 }}>✓</span>;
-  return <span style={{ color: "#3f3f46", fontSize: 18 }}>—</span>;
-}
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
 const WA          = `https://wa.me/5491126730927?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20Flowix.`;
@@ -101,6 +83,7 @@ export default function FlowixAgency() {
 
         <div className="nav-links-row">
           {[
+            { label: "Servicios",       href: "#servicios" },
             { label: "Productos",       href: "#productos" },
             { label: "Por qué Flowix",  href: "#por-que" },
             { label: "Contacto",        href: "#contacto" },
@@ -292,9 +275,9 @@ export default function FlowixAgency() {
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", borderBottom: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}>
         <div className="stats-bar stats-inner sr" style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", textAlign: "center" as const }}>
           {[
-            { value: "1",    label: "Producto activo" },
-            { value: "+8",   label: "Rubros cubiertos" },
-            { value: "100%", label: "Foco en resultados" },
+            { value: "3",    label: "Líneas de servicio" },
+            { value: "+8",   label: "Rubros atendidos" },
+            { value: "100%", label: "A medida" },
             { value: "ARG",  label: "Desarrollo local" },
           ].map((s, i) => (
             <div key={i} style={{ padding: "0 24px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.05)" : undefined }}>
@@ -304,35 +287,6 @@ export default function FlowixAgency() {
           ))}
         </div>
       </div>
-
-      {/* ── DEMO DEL SISTEMA ─────────────────────────────────── */}
-      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "#08080f" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div className="sr" style={{ marginBottom: 48, textAlign: "center" as const }}>
-            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>En acción</p>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, marginBottom: 16 }}>
-              Mirá cómo funciona.
-            </h2>
-            <p style={{ color: "#999", fontSize: 16, maxWidth: 480, margin: "0 auto" }}>
-              Una mirada rápida al sistema real. Así se ve en el día a día de una barbería.
-            </p>
-          </div>
-
-          {/* Placeholder — reemplazar con <iframe> de YouTube/Vimeo o <video> local */}
-          <div className="sr" style={{
-            maxWidth: 880, margin: "0 auto",
-            background: "rgba(255,255,255,0.02)", border: "2px dashed rgba(255,255,255,0.1)",
-            borderRadius: 20, overflow: "hidden", aspectRatio: "16/9",
-            display: "flex", flexDirection: "column" as const, alignItems: "center", justifyContent: "center", gap: 16,
-          }}>
-            <div style={{ width: 72, height: 72, borderRadius: "50%", background: "rgba(0,204,106,0.08)", border: `1px solid rgba(0,204,106,0.2)`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            </div>
-            <p style={{ color: "#555", fontSize: 15, margin: 0, fontWeight: 600 }}>Demo del sistema — próximamente</p>
-            <p style={{ color: "#2a2a2a", fontSize: 12, margin: 0 }}>Reemplazar con embed de YouTube / Vimeo o archivo de video</p>
-          </div>
-        </div>
-      </section>
 
       {/* ── ¿RECONOCÉS ESTO? ─────────────────────────────────── */}
       <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
@@ -350,10 +304,10 @@ export default function FlowixAgency() {
 
             <div style={{ display: "flex", flexDirection: "column" as const, gap: 0 }}>
               {[
-                "Agenda en papel o por WhatsApp — perdés turnos sin darte cuenta",
-                "No sabés exactamente cuánto ganaste hoy ni esta semana — tu plata pasa sin quedar registrada",
-                "Cada dato en un lugar distinto: Instagram, papel, memoria — cuando lo necesitás, no lo encontrás",
-                "Si vos no estás, el negocio se para — sin sistema, sin proceso, sin continuidad",
+                "Manejás tu negocio con papel, WhatsApp o Excel — perdés tiempo y cometés errores todos los días",
+                "No tenés presencia web o tu sitio no convierte — los clientes te buscan y no te eligen",
+                "Hacés a mano cosas que podrían hacerse solas — recordatorios, respuestas, carga de datos, todo vos",
+                "Si vos no estás, el negocio se para — sin sistema, sin procesos, sin forma de escalar",
               ].map((pain, i) => (
                 <div key={i} style={{
                   display: "flex", alignItems: "flex-start", gap: 14,
@@ -398,7 +352,7 @@ export default function FlowixAgency() {
                   <div style={{ width: "72%", height: "100%", background: "#ef4444", borderRadius: 4 }} />
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
-                  {["Turnos perdidos","Caja sin control","Sin reportes","Clientes olvidados"].map(t => (
+                  {["Sin sistema","Sin presencia web","Tareas manuales","Sin automatizar"].map(t => (
                     <span key={t} style={{ fontSize: 11, color: "#555", background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.12)", borderRadius: 6, padding: "4px 10px" }}>{t}</span>
                   ))}
                 </div>
@@ -409,15 +363,121 @@ export default function FlowixAgency() {
         </div>
       </section>
 
+      {/* ── LO QUE CONSTRUIMOS ───────────────────────────────── */}
+      <section id="servicios" className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "#08080f" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="sr" style={{ marginBottom: 68 }}>
+            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Lo que construimos</p>
+            <h2 style={{ fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, maxWidth: 580 }}>
+              Tres líneas de trabajo,<br />un solo equipo.
+            </h2>
+            <p style={{ color: "#999", fontSize: 17, lineHeight: 1.75, marginTop: 18, maxWidth: 500 }}>
+              Desde sistemas de gestión hasta automatizaciones con IA. Construimos lo que tu negocio necesita, sin intermediarios.
+            </p>
+          </div>
+
+          <div className="services-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+
+            {/* Sistemas de gestión */}
+            <div className="diff-card sr" style={{
+              background: "rgba(0,204,106,0.06)", border: "1px solid rgba(0,204,106,0.2)",
+              borderRadius: 24, padding: 36, display: "flex", flexDirection: "column" as const,
+              position: "relative", overflow: "hidden",
+            }}>
+              <div aria-hidden style={{ position: "absolute", top: -50, right: -50, width: 160, height: 160, background: "radial-gradient(circle, rgba(0,204,106,0.12) 0%, transparent 65%)", pointerEvents: "none" }} />
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(0,204,106,0.12)", border: "1px solid rgba(0,204,106,0.25)", display: "flex", alignItems: "center", justifyContent: "center", color: G, marginBottom: 24 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.5px", marginBottom: 10 }}>Sistemas de gestión</h3>
+              <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75, marginBottom: 24 }}>
+                Software a medida para negocios de servicios. Todo lo que necesitás para operar, en un solo lugar.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column" as const, gap: 9, marginBottom: 32, flex: 1 }}>
+                {["Agenda inteligente de turnos", "Caja y cobros con reportes", "Base de clientes e historial", "Inventario y control del local"].map(item => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div style={{ width: 16, height: 16, borderRadius: 5, background: "rgba(0,204,106,0.1)", border: "1px solid rgba(0,204,106,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span style={{ fontSize: 13, color: "#888" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 14, textDecoration: "none", padding: "12px 24px", borderRadius: 10 }}>
+                Hablemos →
+              </a>
+            </div>
+
+            {/* Desarrollo web */}
+            <div className="diff-card sr" style={{
+              background: "rgba(96,165,250,0.04)", border: "1px solid rgba(96,165,250,0.18)",
+              borderRadius: 24, padding: 36, display: "flex", flexDirection: "column" as const,
+              position: "relative", overflow: "hidden", transitionDelay: "0.08s",
+            }}>
+              <div aria-hidden style={{ position: "absolute", top: -50, right: -50, width: 160, height: 160, background: "radial-gradient(circle, rgba(96,165,250,0.08) 0%, transparent 65%)", pointerEvents: "none" }} />
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.22)", display: "flex", alignItems: "center", justifyContent: "center", color: "#60a5fa", marginBottom: 24 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.5px", marginBottom: 10 }}>Desarrollo web</h3>
+              <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75, marginBottom: 24 }}>
+                Sitios y aplicaciones web diseñados para convertir. Desde landings hasta plataformas completas.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column" as const, gap: 9, marginBottom: 32, flex: 1 }}>
+                {["Landings de alto impacto", "Sitios institucionales", "E-commerce y tiendas online", "Web apps a medida"].map(item => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div style={{ width: 16, height: 16, borderRadius: 5, background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span style={{ fontSize: 13, color: "#888" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(96,165,250,0.1)", color: "#60a5fa", fontWeight: 700, fontSize: 14, textDecoration: "none", padding: "12px 24px", borderRadius: 10, border: "1px solid rgba(96,165,250,0.25)" }}>
+                Hablemos →
+              </a>
+            </div>
+
+            {/* Automatizaciones con IA */}
+            <div className="diff-card sr" style={{
+              background: "rgba(167,139,250,0.04)", border: "1px solid rgba(167,139,250,0.18)",
+              borderRadius: 24, padding: 36, display: "flex", flexDirection: "column" as const,
+              position: "relative", overflow: "hidden", transitionDelay: "0.16s",
+            }}>
+              <div aria-hidden style={{ position: "absolute", top: -50, right: -50, width: 160, height: 160, background: "radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 65%)", pointerEvents: "none" }} />
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(167,139,250,0.1)", border: "1px solid rgba(167,139,250,0.22)", display: "flex", alignItems: "center", justifyContent: "center", color: "#a78bfa", marginBottom: 24 }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h3 style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.5px", marginBottom: 10 }}>Automatizaciones con IA</h3>
+              <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75, marginBottom: 24 }}>
+                Flujos inteligentes que trabajan mientras vos dormís. Conectamos tus herramientas y eliminamos tareas repetitivas.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column" as const, gap: 9, marginBottom: 32, flex: 1 }}>
+                {["Flujos automatizados con n8n", "Agentes de IA para tu negocio", "Integraciones entre plataformas", "WhatsApp bots y notificaciones"].map(item => (
+                  <div key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div style={{ width: 16, height: 16, borderRadius: 5, background: "rgba(167,139,250,0.08)", border: "1px solid rgba(167,139,250,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span style={{ fontSize: 13, color: "#888" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(167,139,250,0.1)", color: "#a78bfa", fontWeight: 700, fontSize: 14, textDecoration: "none", padding: "12px 24px", borderRadius: 10, border: "1px solid rgba(167,139,250,0.25)" }}>
+                Hablemos →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── PRODUCTOS ────────────────────────────────────────── */}
       <section id="productos" className="section-pad" style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div className="sr" style={{ marginBottom: 68 }}>
-          <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Nuestros productos</p>
+          <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Productos activos</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, maxWidth: 580 }}>
             Software diseñado<br />para cada rubro.
           </h2>
           <p style={{ color: "#999", fontSize: 17, lineHeight: 1.75, marginTop: 18, maxWidth: 500 }}>
-            Cada producto nace del entendimiento profundo del negocio al que sirve. Sin funciones de relleno, sin complicaciones.
+            Estos son los sistemas que ya construimos. Disponibles hoy, con soporte y actualizaciones continuas.
           </p>
         </div>
 
@@ -698,102 +758,6 @@ export default function FlowixAgency() {
         </div>
       </section>
 
-      {/* ── PRECIOS ──────────────────────────────────────────── */}
-      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div className="sr" style={{ marginBottom: 64, textAlign: "center" as const }}>
-            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Planes</p>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, marginBottom: 14 }}>
-              Precio fijo.<br />Sin sorpresas.
-            </h2>
-            <p style={{ color: "#999", fontSize: 16, maxWidth: 460, margin: "0 auto" }}>
-              Suscripción mensual. Sin contratos de permanencia. Los mismos planes para todos los sistemas Flowix.
-            </p>
-          </div>
-
-          <div className="sr" style={{ overflowX: "auto" as const, borderRadius: 20, border: "1px solid rgba(255,255,255,0.08)" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse" as const, minWidth: 680, tableLayout: "fixed" as const }}>
-              <colgroup>
-                <col style={{ width: "28%" }} />
-                <col style={{ width: "24%" }} />
-                <col style={{ width: "24%" }} />
-                <col style={{ width: "24%" }} />
-              </colgroup>
-              <thead>
-                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-                  <th style={{ padding: "36px 32px", textAlign: "left" as const, fontWeight: "normal" as const }}>
-                    <span style={{ fontSize: 13, color: "#333", fontWeight: 500 }}>Incluye</span>
-                  </th>
-                  {/* BASE */}
-                  <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(255,255,255,0.015)", fontWeight: "normal" as const }}>
-                    <p style={{ margin: "0 0 8px", fontSize: 16, fontWeight: 600, color: "#888" }}>Base</p>
-                    <p style={{ margin: "0 0 22px" }}>
-                      <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-2px" }}>$25.000</span>
-                      <span style={{ fontSize: 13, color: "#666" }}>/mes</span>
-                    </p>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "rgba(255,255,255,0.06)", color: "#888", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 16px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.08)" }}>Empezar</a>
-                  </th>
-                  {/* PRO */}
-                  <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(0,204,106,0.05)", fontWeight: "normal" as const, borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}`, borderTop: `2px solid ${G}`, position: "relative" as const }}>
-                    <div style={{ position: "absolute" as const, top: -1, left: "50%", transform: "translateX(-50%)", background: G, color: "#000", fontSize: 10, fontWeight: 800, padding: "4px 14px", borderRadius: "0 0 10px 10px", letterSpacing: "0.07em", whiteSpace: "nowrap" as const }}>MÁS ELEGIDO</div>
-                    <p style={{ margin: "14px 0 8px", fontSize: 16, fontWeight: 700, color: G }}>Pro</p>
-                    <p style={{ margin: "0 0 10px" }}>
-                      <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-2px", color: G }}>$45.000</span>
-                      <span style={{ fontSize: 13, color: "#666" }}>/mes</span>
-                    </p>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "rgba(0,204,106,0.12)", border: "1px solid rgba(0,204,106,0.25)", borderRadius: 20, padding: "4px 12px", fontSize: 11, color: G, fontWeight: 700, marginBottom: 16 }}>
-                      ✦ 7 días de prueba gratis
-                    </div>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 16px", borderRadius: 10 }}>Empezar</a>
-                  </th>
-                  {/* ELITE */}
-                  <th style={{ padding: "36px 24px", textAlign: "center" as const, background: "rgba(167,139,250,0.04)", fontWeight: "normal" as const }}>
-                    <p style={{ margin: "0 0 8px", fontSize: 16, fontWeight: 600, color: "#a78bfa" }}>Elite</p>
-                    <p style={{ margin: "0 0 22px" }}>
-                      <span style={{ fontSize: 38, fontWeight: 800, letterSpacing: "-2px", color: "#a78bfa" }}>$85.000</span>
-                      <span style={{ fontSize: 13, color: "#666" }}>/mes</span>
-                    </p>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "rgba(167,139,250,0.1)", color: "#a78bfa", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 16px", borderRadius: 10, border: "1px solid rgba(167,139,250,0.2)" }}>Contactar</a>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {tableFeatures.map((f, i) => (
-                  <tr key={f.name} style={{ borderBottom: "1px solid rgba(255,255,255,0.03)", background: i % 2 !== 0 ? "rgba(255,255,255,0.008)" : "transparent" }}>
-                    <td style={{ padding: "12px 32px", fontSize: 13, color: "#999" }}>{f.name}</td>
-                    <td style={{ textAlign: "center" as const, padding: "12px 24px", background: "rgba(255,255,255,0.008)" }}>
-                      <PlanCell val={f.base} color="#e4e4e7" />
-                    </td>
-                    <td style={{ textAlign: "center" as const, padding: "12px 24px", background: "rgba(0,204,106,0.03)", borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}` }}>
-                      <PlanCell val={f.pro} color={G} />
-                    </td>
-                    <td style={{ textAlign: "center" as const, padding: "12px 24px", background: "rgba(167,139,250,0.015)" }}>
-                      <PlanCell val={f.elite} color="#a78bfa" />
-                    </td>
-                  </tr>
-                ))}
-                <tr>
-                  <td style={{ padding: "24px 32px" }} />
-                  <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(255,255,255,0.01)" }}>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "rgba(255,255,255,0.06)", color: "#888", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 24px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.08)" }}>Empezar</a>
-                  </td>
-                  <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(0,204,106,0.04)", borderLeft: `2px solid ${G}`, borderRight: `2px solid ${G}`, borderBottom: `2px solid ${G}` }}>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "11px 28px", borderRadius: 10 }}>Empezar</a>
-                  </td>
-                  <td style={{ padding: "20px 24px", textAlign: "center" as const, background: "rgba(167,139,250,0.03)" }}>
-                    <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", background: "rgba(167,139,250,0.1)", color: "#a78bfa", fontSize: 13, fontWeight: 600, textDecoration: "none", padding: "11px 24px", borderRadius: 10, border: "1px solid rgba(167,139,250,0.2)" }}>Contactar</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p className="sr" style={{ textAlign: "center" as const, fontSize: 13, color: "#666", marginTop: 24 }}>
-            Precios en pesos argentinos · IVA no incluido · Cancelás cuando querés
-          </p>
-        </div>
-      </section>
-
       {/* ── FAQ ──────────────────────────────────────────────── */}
       <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", background: "#08080f" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
@@ -825,59 +789,88 @@ export default function FlowixAgency() {
         </div>
       </section>
 
-      {/* ── TESTIMONIO ───────────────────────────────────────── */}
-      <section className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <div className="sr" style={{
-            background: "rgba(0,204,106,0.07)", border: "1px solid rgba(0,204,106,0.2)",
-            borderRadius: 24, padding: "48px 56px", position: "relative", overflow: "hidden",
-          }}>
-            <div aria-hidden style={{ position: "absolute", top: -40, right: -40, width: 200, height: 200, background: "radial-gradient(circle, rgba(0,204,106,0.16) 0%, transparent 65%)", pointerEvents: "none" }} />
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(0,204,106,0.25)" style={{ marginBottom: 24 }}><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-            <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "#d4d4d8", lineHeight: 1.75, fontStyle: "italic", marginBottom: 32, position: "relative" }}>
-              "Fácil de usar y muy práctico. Nos permite gestionar los turnos de forma fluida, tener todos los datos bien organizados y ver el rendimiento real del negocio de un vistazo. Es exactamente lo que necesitábamos."
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <div style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(0,204,106,0.15)", border: "1px solid rgba(0,204,106,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, fontWeight: 800, color: G }}>
-                F
-              </div>
-              <div>
-                <p style={{ margin: 0, fontWeight: 700, fontSize: 15 }}>Fernando</p>
-                <p style={{ margin: 0, fontSize: 13, color: "#888" }}>Fundador · Flow K'Pital</p>
-              </div>
-              <div style={{ marginLeft: "auto", display: "flex", gap: 3 }}>
-                {[1,2,3,4,5].map(s => (
-                  <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill={G}><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA FINAL ────────────────────────────────────────── */}
+      {/* ── CÓMO ARRANCAMOS + CTA ────────────────────────────── */}
       <section id="contacto" className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative" }}>
-        {/* Ambient glow detrás del box */}
-        <div aria-hidden style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "90%", height: "70%", background: "radial-gradient(ellipse, rgba(0,204,106,0.13) 0%, transparent 65%)", pointerEvents: "none" }} />
+        <div aria-hidden style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "90%", height: "60%", background: "radial-gradient(ellipse, rgba(0,204,106,0.1) 0%, transparent 65%)", pointerEvents: "none" }} />
         <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative" }}>
+
+          {/* Pasos */}
+          <div className="sr" style={{ marginBottom: 72, textAlign: "center" as const }}>
+            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>El primer paso</p>
+            <h2 style={{ fontSize: "clamp(28px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04, marginBottom: 18 }}>
+              ¿Cómo arrancamos?
+            </h2>
+            <p style={{ color: "#999", fontSize: 17, maxWidth: 460, margin: "0 auto", lineHeight: 1.75 }}>
+              Sin formularios largos ni procesos complicados. Tres pasos y ya estamos trabajando.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 40px 1fr 40px 1fr", alignItems: "start", gap: 0, maxWidth: 960, margin: "0 auto 80px" }}>
+
+            {/* Paso 1 */}
+            <div className="sr" style={{ textAlign: "center" as const }}>
+              <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(0,204,106,0.1)", border: "1px solid rgba(0,204,106,0.25)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", position: "relative" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <div style={{ position: "absolute", top: -6, right: -6, width: 22, height: 22, borderRadius: "50%", background: G, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 800, color: "#000" }}>1</div>
+              </div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.3px", marginBottom: 10 }}>Hablamos</h3>
+              <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75, maxWidth: 240, margin: "0 auto" }}>
+                Nos contás qué necesita tu negocio. Sin formularios, sin burocracia. Una charla de 20 minutos alcanza.
+              </p>
+            </div>
+
+            {/* Conector */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 28 }}>
+              <div style={{ width: 40, height: 1, background: "linear-gradient(90deg, rgba(0,204,106,0.4), rgba(0,204,106,0.1))" }} />
+            </div>
+
+            {/* Paso 2 */}
+            <div className="sr" style={{ textAlign: "center" as const, transitionDelay: "0.1s" }}>
+              <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(0,204,106,0.1)", border: "1px solid rgba(0,204,106,0.25)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", position: "relative" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <div style={{ position: "absolute", top: -6, right: -6, width: 22, height: 22, borderRadius: "50%", background: G, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 800, color: "#000" }}>2</div>
+              </div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.3px", marginBottom: 10 }}>Analizamos tu caso</h3>
+              <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75, maxWidth: 240, margin: "0 auto" }}>
+                Entendemos tu operación, tus procesos y tus objetivos. Así lo que construimos tiene sentido real.
+              </p>
+            </div>
+
+            {/* Conector */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 28 }}>
+              <div style={{ width: 40, height: 1, background: "linear-gradient(90deg, rgba(0,204,106,0.1), rgba(0,204,106,0.4))" }} />
+            </div>
+
+            {/* Paso 3 */}
+            <div className="sr" style={{ textAlign: "center" as const, transitionDelay: "0.2s" }}>
+              <div style={{ width: 64, height: 64, borderRadius: "50%", background: "rgba(0,204,106,0.1)", border: "1px solid rgba(0,204,106,0.25)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", position: "relative" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <div style={{ position: "absolute", top: -6, right: -6, width: 22, height: 22, borderRadius: "50%", background: G, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 800, color: "#000" }}>3</div>
+              </div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, letterSpacing: "-0.3px", marginBottom: 10 }}>Propuesta en 48hs</h3>
+              <p style={{ fontSize: 14, color: "#999", lineHeight: 1.75, maxWidth: 240, margin: "0 auto" }}>
+                Te presentamos qué haríamos, cómo lo haríamos y qué implica. Sin compromiso de tu parte.
+              </p>
+            </div>
+
+          </div>
+
+          {/* CTA box */}
           <div className="cta-box sr" style={{
             background: "linear-gradient(160deg, rgba(0,204,106,0.15) 0%, rgba(0,0,0,0) 55%)",
             border: "1px solid rgba(0,204,106,0.38)", borderRadius: 28,
             textAlign: "center" as const, position: "relative", overflow: "hidden",
             boxShadow: "0 0 120px rgba(0,204,106,0.18), 0 40px 120px rgba(0,0,0,0.55), inset 0 1px 0 rgba(0,204,106,0.22)",
           }}>
-            {/* Top highlight line */}
             <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent 0%, rgba(0,204,106,1) 50%, transparent 100%)", pointerEvents: "none" }} />
-            {/* Dot grid sutil */}
             <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, #000 10%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, #000 10%, transparent 80%)", pointerEvents: "none" }} />
-            {/* Centro glow */}
             <div aria-hidden style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 800, height: 500, background: "radial-gradient(ellipse, rgba(0,204,106,0.20) 0%, transparent 65%)", pointerEvents: "none" }} />
-            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 20, position: "relative" }}>¿No encontrás tu rubro?</p>
+            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 20, position: "relative" }}>Empezá hoy</p>
             <h2 style={{ fontSize: "clamp(26px, 4.5vw, 60px)", fontWeight: 800, letterSpacing: "-3px", lineHeight: 1.02, marginBottom: 22, position: "relative" }}>
               Construimos lo que<br />tu negocio necesita.
             </h2>
             <p style={{ fontSize: 17, color: "#999", lineHeight: 1.75, maxWidth: 460, margin: "0 auto 48px", position: "relative" }}>
-              Si tenés un negocio de servicios y necesitás un sistema a medida, hablemos. Analizamos tu caso sin compromiso.
+              Hablemos. Analizamos tu caso sin compromiso y te presentamos una propuesta en 48 horas.
             </p>
             <div className="cta-buttons">
               <a href={WA} target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12, boxShadow: "0 0 40px rgba(0,204,106,0.35)" }}>
@@ -888,6 +881,7 @@ export default function FlowixAgency() {
               </a>
             </div>
           </div>
+
         </div>
       </section>
 
