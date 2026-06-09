@@ -856,14 +856,22 @@ export default function FlowixAgency() {
       </section>
 
       {/* ── CTA FINAL ────────────────────────────────────────── */}
-      <section id="contacto" className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section id="contacto" className="section-pad" style={{ borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative" }}>
+        {/* Ambient glow detrás del box */}
+        <div aria-hidden style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "90%", height: "70%", background: "radial-gradient(ellipse, rgba(0,204,106,0.13) 0%, transparent 65%)", pointerEvents: "none" }} />
+        <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative" }}>
           <div className="cta-box sr" style={{
-            background: "linear-gradient(135deg, rgba(0,204,106,0.11) 0%, rgba(0,0,0,0) 60%)",
-            border: "1px solid rgba(0,204,106,0.2)", borderRadius: 28,
+            background: "linear-gradient(160deg, rgba(0,204,106,0.15) 0%, rgba(0,0,0,0) 55%)",
+            border: "1px solid rgba(0,204,106,0.38)", borderRadius: 28,
             textAlign: "center" as const, position: "relative", overflow: "hidden",
+            boxShadow: "0 0 120px rgba(0,204,106,0.18), 0 40px 120px rgba(0,0,0,0.55), inset 0 1px 0 rgba(0,204,106,0.22)",
           }}>
-            <div aria-hidden style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 400, background: `radial-gradient(ellipse, rgba(0,204,106,0.14) 0%, transparent 65%)`, pointerEvents: "none" }} />
+            {/* Top highlight line */}
+            <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent 0%, rgba(0,204,106,1) 50%, transparent 100%)", pointerEvents: "none" }} />
+            {/* Dot grid sutil */}
+            <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "28px 28px", maskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, #000 10%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 85% 85% at 50% 50%, #000 10%, transparent 80%)", pointerEvents: "none" }} />
+            {/* Centro glow */}
+            <div aria-hidden style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 800, height: 500, background: "radial-gradient(ellipse, rgba(0,204,106,0.20) 0%, transparent 65%)", pointerEvents: "none" }} />
             <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 20, position: "relative" }}>¿No encontrás tu rubro?</p>
             <h2 style={{ fontSize: "clamp(26px, 4.5vw, 60px)", fontWeight: 800, letterSpacing: "-3px", lineHeight: 1.02, marginBottom: 22, position: "relative" }}>
               Construimos lo que<br />tu negocio necesita.
@@ -872,7 +880,7 @@ export default function FlowixAgency() {
               Si tenés un negocio de servicios y necesitás un sistema a medida, hablemos. Analizamos tu caso sin compromiso.
             </p>
             <div className="cta-buttons">
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12 }}>
+              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12, boxShadow: "0 0 40px rgba(0,204,106,0.35)" }}>
                 Contactar por WhatsApp
               </a>
               <a href="https://www.instagram.com/flowixagency/" target="_blank" rel="noopener noreferrer" style={{ background: "rgba(255,255,255,0.05)", color: "#ccc", fontWeight: 500, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)" }}>
