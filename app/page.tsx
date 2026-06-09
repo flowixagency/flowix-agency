@@ -426,11 +426,14 @@ export default function FlowixAgency() {
 
           {/* Flowix Book */}
           <div className="product-card glow-card sr" style={{
-            background: "rgba(0,204,106,0.07)", border: "1px solid rgba(0,204,106,0.18)",
+            background: "rgba(0,204,106,0.11)", border: "1px solid rgba(0,204,106,0.32)",
             borderRadius: 24, padding: 40, position: "relative", overflow: "hidden",
             display: "flex", flexDirection: "column" as const,
+            boxShadow: "0 0 80px rgba(0,204,106,0.18), 0 24px 80px rgba(0,0,0,0.5)",
           }}>
-            <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: `radial-gradient(circle, rgba(0,204,106,0.08) 0%, transparent 65%)`, pointerEvents: "none" }} />
+            {/* Top highlight line */}
+            <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent 0%, rgba(0,204,106,0.9) 50%, transparent 100%)", pointerEvents: "none" }} />
+            <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: `radial-gradient(circle, rgba(0,204,106,0.18) 0%, transparent 65%)`, pointerEvents: "none" }} />
 
             <div className="pulse-badge" style={{
               display: "inline-flex", alignItems: "center", gap: 7,
@@ -486,6 +489,7 @@ export default function FlowixAgency() {
             background: "rgba(96,165,250,0.03)", border: "1px solid rgba(96,165,250,0.14)",
             borderRadius: 24, padding: 40, position: "relative", overflow: "hidden",
             display: "flex", flexDirection: "column" as const, transitionDelay: "0.1s",
+            opacity: 0.55,
           }}>
             <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: "radial-gradient(circle, rgba(96,165,250,0.07) 0%, transparent 65%)", pointerEvents: "none" }} />
 
@@ -547,6 +551,7 @@ export default function FlowixAgency() {
           borderRadius: 24, padding: "32px 40px",
           display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "center", gap: 36,
           transitionDelay: "0.15s",
+          opacity: 0.45,
         }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(167,139,250,0.06)", border: "1px solid rgba(167,139,250,0.14)", borderRadius: 20, padding: "5px 14px", fontSize: 11, fontWeight: 700, color: "#a78bfa", letterSpacing: "0.04em", whiteSpace: "nowrap" as const }}>
             <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#a78bfa", display: "inline-block" }} />
