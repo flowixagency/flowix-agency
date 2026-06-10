@@ -158,26 +158,31 @@ body { background: #050508; color: #fff; }
 
 /* ─── RESPONSIVE — 900px ─────────────────────────────────────── */
 @media (max-width: 900px) {
-  .products-grid { grid-template-columns: 1fr !important; }
-  .diff-grid     { grid-template-columns: 1fr 1fr !important; }
-  .footer-grid   { grid-template-columns: 1fr 1fr !important; }
-  .stats-bar     { grid-template-columns: 1fr 1fr !important; }
-  /* Hero: columna única, mockup debajo */
-  .hero-grid     { grid-template-columns: 1fr !important; }
-  .hero-mockup   { display: none !important; }
+  .products-grid  { grid-template-columns: 1fr !important; }
+  .diff-grid      { grid-template-columns: 1fr 1fr !important; }
+  .footer-grid    { grid-template-columns: 1fr 1fr !important; }
+  .stats-bar      { grid-template-columns: 1fr 1fr !important; }
+  .services-grid  { grid-template-columns: 1fr 1fr !important; }
+  /* Hero: columna única, mockup oculto */
+  .hero-grid      { grid-template-columns: 1fr !important; }
+  .hero-mockup    { display: none !important; }
   /* Pain points: columna única */
-  .pain-grid     { grid-template-columns: 1fr !important; }
+  .pain-grid      { grid-template-columns: 1fr !important; }
   /* Steps: 2 columnas en tablet */
-  .steps-grid    { grid-template-columns: 1fr 1fr !important; }
+  .steps-grid     { grid-template-columns: 1fr 1fr !important; }
 }
 
 /* ─── RESPONSIVE — 700px ─────────────────────────────────────── */
 @media (max-width: 700px) {
-  /* Nav: ocultar links del medio, reducir padding */
+  /* Nav: ocultar links del medio */
   .nav-links-row { display: none; }
 
-  /* Hero */
-  .hero-text-overlay { padding: 0 24px; align-items: flex-end; padding-bottom: 80px; }
+  /* Hero padding */
+  .hero-section { padding: 60px 20px !important; }
+
+  /* Pasos "¿Cómo arrancamos?": stack vertical, ocultar conectores */
+  .como-grid       { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .step-connector  { display: none !important; }
 
   /* Secciones */
   .section-pad  { padding: 64px 20px; }
@@ -196,10 +201,11 @@ body { background: #050508; color: #fff; }
 
 /* ─── RESPONSIVE — 600px ─────────────────────────────────────── */
 @media (max-width: 600px) {
-  .diff-grid  { grid-template-columns: 1fr !important; }
-  .stats-bar  { grid-template-columns: 1fr 1fr !important; }
-  .steps-grid { grid-template-columns: 1fr !important; }
-  .pain-grid  { grid-template-columns: 1fr !important; }
+  .diff-grid     { grid-template-columns: 1fr !important; }
+  .services-grid { grid-template-columns: 1fr !important; }
+  .stats-bar     { grid-template-columns: 1fr 1fr !important; }
+  .steps-grid    { grid-template-columns: 1fr !important; }
+  .pain-grid     { grid-template-columns: 1fr !important; }
 }
 
 /* ─── FAQ ────────────────────────────────────────────────────── */

@@ -99,7 +99,7 @@ export default function FlowixAgency() {
       </nav>
 
       {/* ── HERO — dos columnas: texto + mockup 3D ───────────── */}
-      <section style={{
+      <section className="hero-section" style={{
         minHeight: "calc(100vh - 68px)", display: "flex", alignItems: "center",
         position: "relative", overflow: "hidden",
         padding: "80px 40px",
@@ -805,7 +805,7 @@ export default function FlowixAgency() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 40px 1fr 40px 1fr", alignItems: "start", gap: 0, maxWidth: 960, margin: "0 auto 80px" }}>
+          <div className="como-grid" style={{ display: "grid", gridTemplateColumns: "1fr 40px 1fr 40px 1fr", alignItems: "start", gap: 0, maxWidth: 960, margin: "0 auto 80px" }}>
 
             {/* Paso 1 */}
             <div className="sr" style={{ textAlign: "center" as const }}>
@@ -820,7 +820,7 @@ export default function FlowixAgency() {
             </div>
 
             {/* Conector */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 28 }}>
+            <div className="step-connector" style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 28 }}>
               <div style={{ width: 40, height: 1, background: "linear-gradient(90deg, rgba(0,204,106,0.4), rgba(0,204,106,0.1))" }} />
             </div>
 
@@ -837,7 +837,7 @@ export default function FlowixAgency() {
             </div>
 
             {/* Conector */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 28 }}>
+            <div className="step-connector" style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 28 }}>
               <div style={{ width: 40, height: 1, background: "linear-gradient(90deg, rgba(0,204,106,0.1), rgba(0,204,106,0.4))" }} />
             </div>
 
