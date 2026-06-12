@@ -111,6 +111,13 @@ body { background: #050508; color: #fff; }
 .nav-link { transition: color 0.15s; }
 .nav-link:hover { color: #fff !important; }
 
+/* ─── HERO PATH CARDS ────────────────────────────────────────── */
+.path-card { transition: border-color 0.2s, background 0.2s; }
+.path-card--green   { background: rgba(0,204,106,0.06);   border: 1px solid rgba(0,204,106,0.2); }
+.path-card--neutral { background: rgba(255,255,255,0.03);  border: 1px solid rgba(255,255,255,0.1); }
+.path-card--green:hover   { background: rgba(0,204,106,0.11);   border-color: rgba(0,204,106,0.45); }
+.path-card--neutral:hover { background: rgba(255,255,255,0.06);  border-color: rgba(255,255,255,0.25); }
+
 /* ─── HERO TEXT OVERLAY ──────────────────────────────────────── */
 .hero-text-overlay {
   position: absolute; inset: 0; z-index: 10;

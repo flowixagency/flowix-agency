@@ -132,26 +132,34 @@ export default function FlowixAgency() {
               lineHeight: 1.0, letterSpacing: "-3.5px",
               margin: "0 0 28px", animationDelay: "0.1s",
             }}>
-              El sistema que<br />tu negocio<br /><em style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", color: G, letterSpacing: "-1px" }}>necesitaba.</em>
+              Construimos los<br />sistemas que tu<br />negocio <em style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", color: G, letterSpacing: "-1px" }}>necesita.</em>
             </h1>
 
             <p className="anim-up" style={{
-              fontSize: "clamp(15px, 1.8vw, 18px)", color: "rgba(255,255,255,0.5)", lineHeight: 1.75,
-              maxWidth: 420, animationDelay: "0.2s", fontWeight: 400, marginBottom: 40,
+              fontSize: "clamp(15px, 1.8vw, 17px)", color: "rgba(255,255,255,0.45)", lineHeight: 1.75,
+              maxWidth: 400, animationDelay: "0.2s", fontWeight: 400, marginBottom: 36,
             }}>
-              Sistemas de gestión a medida para negocios de servicios. Soluciones reales, sin complejidad innecesaria.
+              Software de gestión para negocios de servicios. Productos ya activos o desarrollo a medida — según lo que necesites.
             </p>
 
-            <div className="anim-up" style={{ display: "flex", gap: 14, flexWrap: "wrap", animationDelay: "0.3s" }}>
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{
-                background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontWeight: 700, fontSize: 15,
-                textDecoration: "none", padding: "14px 32px", borderRadius: 12,
-              }}>Hablemos →</a>
-              <a href={SALON_URL} target="_blank" rel="noopener noreferrer" style={{
-                background: "rgba(255,255,255,0.05)", color: "#aaa", fontWeight: 500, fontSize: 15,
-                textDecoration: "none", padding: "14px 32px", borderRadius: 12,
-                border: "1px solid rgba(255,255,255,0.1)",
-              }}>Ver el producto</a>
+            <div className="anim-up" style={{ display: "flex", gap: 12, flexWrap: "wrap", animationDelay: "0.3s" }}>
+              {/* Path 1 — Productos listos */}
+              <a href="#productos" className="path-card path-card--green" style={{
+                display: "flex", flexDirection: "column" as const, gap: 4,
+                textDecoration: "none", padding: "16px 22px", borderRadius: 14, flex: 1, minWidth: 180,
+              }}>
+                <span style={{ fontSize: 12, color: G, fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase" as const }}>Productos listos</span>
+                <span style={{ fontSize: 13, color: "#777", lineHeight: 1.5 }}>Soluciones ya activas. Empezás en 24hs. →</span>
+              </a>
+
+              {/* Path 2 — A medida */}
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="path-card path-card--neutral" style={{
+                display: "flex", flexDirection: "column" as const, gap: 4,
+                textDecoration: "none", padding: "16px 22px", borderRadius: 14, flex: 1, minWidth: 180,
+              }}>
+                <span style={{ fontSize: 12, color: "#aaa", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase" as const }}>A medida</span>
+                <span style={{ fontSize: 13, color: "#555", lineHeight: 1.5 }}>Necesitás algo específico. Lo construimos. →</span>
+              </a>
             </div>
           </div>
 
