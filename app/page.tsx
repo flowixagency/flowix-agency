@@ -614,40 +614,6 @@ export default function FlowixAgency() {
 
         </div>
 
-        {/* Fila 2 — Flowix Deporte (horizontal, roadmap) */}
-        <div className="product-card deporte-card sr" style={{
-          background: "rgba(167,139,250,0.02)", border: "1px solid rgba(167,139,250,0.1)",
-          borderRadius: 24, padding: "32px 40px",
-          display: "grid", gridTemplateColumns: "auto 1fr auto", alignItems: "center", gap: 36,
-          transitionDelay: "0.15s",
-          opacity: 0.45,
-        }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: "rgba(167,139,250,0.06)", border: "1px solid rgba(167,139,250,0.14)", borderRadius: 20, padding: "5px 14px", fontSize: 11, fontWeight: 700, color: "#a78bfa", letterSpacing: "0.04em", whiteSpace: "nowrap" as const }}>
-            <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#a78bfa", display: "inline-block" }} />
-            Roadmap
-          </div>
-          <div>
-            <h3 style={{ fontSize: "clamp(18px, 2vw, 22px)", fontWeight: 800, letterSpacing: "-0.6px", marginBottom: 6, lineHeight: 1.1, color: "#ccc" }}>
-              Flowix Deporte
-            </h3>
-            <p style={{ fontSize: 13, color: "#777", lineHeight: 1.6, margin: "0 0 12px" }}>
-              Sistema de gestión para espacios deportivos. Control de asistencia, membresías, clases y seguimiento de alumnos.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-              {["Gimnasios", "Pilates", "Yoga", "Crossfit", "Academias deportivas"].map(n => (
-                <span key={n} style={{ background: "rgba(167,139,250,0.08)", border: "1px solid rgba(167,139,250,0.18)", borderRadius: 7, padding: "3px 10px", fontSize: 11, color: "#a78bfa" }}>{n}</span>
-              ))}
-            </div>
-          </div>
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="deporte-btn" style={{
-            display: "inline-flex", alignItems: "center", gap: 8, whiteSpace: "nowrap" as const,
-            background: "rgba(255,255,255,0.04)", color: "#666", fontWeight: 600, fontSize: 13,
-            textDecoration: "none", padding: "11px 22px", borderRadius: 10,
-            border: "1px solid rgba(255,255,255,0.07)",
-          }}>
-            Avisarme →
-          </a>
-        </div>
 
       </section>
 
