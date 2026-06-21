@@ -553,21 +553,22 @@ export default function FlowixAgency() {
           </div>
 
           {/* Flowix Salud */}
-          <div className="product-card sr" style={{
-            background: "rgba(96,165,250,0.03)", border: "1px solid rgba(96,165,250,0.14)",
+          <div className="product-card glow-card-blue sr" style={{
+            background: "rgba(96,165,250,0.09)", border: "1px solid rgba(96,165,250,0.28)",
             borderRadius: 24, padding: 40, position: "relative", overflow: "hidden",
             display: "flex", flexDirection: "column" as const, transitionDelay: "0.1s",
-            opacity: 0.55,
+            boxShadow: "0 0 80px rgba(96,165,250,0.12), 0 24px 80px rgba(0,0,0,0.5)",
           }}>
-            <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: "radial-gradient(circle, rgba(96,165,250,0.07) 0%, transparent 65%)", pointerEvents: "none" }} />
+            <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent 0%, rgba(96,165,250,0.9) 50%, transparent 100%)", pointerEvents: "none" }} />
+            <div aria-hidden style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: "radial-gradient(circle, rgba(96,165,250,0.15) 0%, transparent 65%)", pointerEvents: "none" }} />
 
-            <div style={{
+            <div className="pulse-badge-blue" style={{
               display: "inline-flex", alignItems: "center", gap: 7,
               background: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.2)",
               borderRadius: 20, padding: "5px 14px", marginBottom: 28, fontSize: 11, fontWeight: 700, color: "#60a5fa", letterSpacing: "0.04em",
             }}>
               <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#60a5fa", display: "inline-block" }} />
-              En desarrollo
+              Disponible ahora
             </div>
 
             <h3 style={{ fontSize: "clamp(22px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1px", marginBottom: 14, lineHeight: 1.1 }}>
