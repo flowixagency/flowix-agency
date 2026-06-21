@@ -48,10 +48,10 @@ const BARS = [38, 60, 42, 78, 52, 88, 65];
 const DAYS = ["L","M","X","J","V","S","D"];
 
 const APPOINTMENTS = [
-  { time: "09:00", name: "Matías G.", service: "Corte + barba",  color: G,         status: "done"    },
-  { time: "10:30", name: "Lucas P.",  service: "Corte clásico",  color: "#a78bfa",  status: "active"  },
-  { time: "12:00", name: "Diego M.",  service: "Degradé",         color: "#60a5fa",  status: "pending" },
-  { time: "14:00", name: "Ramiro S.", service: "Barba",           color: "#f59e0b",  status: "pending" },
+  { time: "09:00", name: "Matías G.", service: "Consulta inicial",  color: G,         status: "done"    },
+  { time: "10:30", name: "Lucas P.",  service: "Sesión de seguimiento",  color: "#a78bfa",  status: "active"  },
+  { time: "12:00", name: "Diego M.",  service: "Control mensual",   color: "#60a5fa",  status: "pending" },
+  { time: "14:00", name: "Ramiro S.", service: "Sesión #4",         color: "#f59e0b",  status: "pending" },
 ];
 
 export default function FlowixAgency() {
@@ -186,7 +186,7 @@ export default function FlowixAgency() {
                   ))}
                 </div>
                 <div style={{ flex: 1, textAlign: "center", fontSize: 10, color: "#3a3a3a", fontWeight: 600, letterSpacing: "0.04em" }}>
-                  Flowix Book · Dashboard
+                  Sistema de gestión · Dashboard
                 </div>
                 <div className="dot-blink" style={{ width: 7, height: 7, borderRadius: "50%", background: G }} />
               </div>
@@ -196,7 +196,7 @@ export default function FlowixAgency() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 14 }}>
                   {[
                     { label: "Ingresos hoy", value: "$45.200", color: G },
-                    { label: "Turnos",        value: "12",       color: "#a78bfa" },
+                    { label: "Reservas",      value: "12",       color: "#a78bfa" },
                     { label: "Clientes",      value: "8",        color: "#60a5fa" },
                   ].map((kpi, i) => (
                     <div key={i} className="slide-row" style={{
@@ -240,7 +240,7 @@ export default function FlowixAgency() {
                   border: "1px solid rgba(255,255,255,0.06)",
                   borderRadius: 10, padding: "11px 13px",
                 }}>
-                  <p style={{ margin: "0 0 9px", fontSize: 8, color: "#3a3a3a", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.09em" }}>Turnos de hoy</p>
+                  <p style={{ margin: "0 0 9px", fontSize: 8, color: "#3a3a3a", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.09em" }}>Reservas de hoy</p>
                   {APPOINTMENTS.map((a, i) => (
                     <div key={i} className="slide-row" style={{
                       display: "flex", alignItems: "center", gap: 7, padding: "5px 0",
