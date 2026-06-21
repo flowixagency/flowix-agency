@@ -8,8 +8,8 @@ const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 const WA          = `https://wa.me/5491126730927?text=Hola!%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20Flowix.`;
 const WA_MARKETING= `https://wa.me/5491169215257?text=Hola!%20Me%20interesa%20el%20marketing%20de%20Flowix%20para%20mi%20negocio.%20%C2%BFMe%20pod%C3%A9s%20contar%20m%C3%A1s%3F`;
 const WA_SOPORTE  = `https://wa.me/5491133383949?text=Hola!%20Necesito%20asistencia%20t%C3%A9cnica%20con%20Flowix.%20%C2%BFMe%20pod%C3%A9s%20ayudar%3F`;
-const SALON_URL  = "https://flowix-landing-six.vercel.app";
-const SALUD_URL  = "https://flowix-salud.vercel.app";
+const SALON_URL  = "https://book.flowixagency.com";
+const SALUD_URL  = "https://salud.flowixagency.com";
 
 const differentiators = [
   {
