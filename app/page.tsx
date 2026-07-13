@@ -439,9 +439,14 @@ export default function FlowixAgency() {
                   </div>
                 ))}
               </div>
-              <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(96,165,250,0.1)", color: "#60a5fa", fontWeight: 700, fontSize: 14, textDecoration: "none", padding: "12px 24px", borderRadius: 10, border: "1px solid rgba(96,165,250,0.25)" }}>
-                Hablemos →
-              </a>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <a href="/portfolio" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(96,165,250,0.1)", color: "#60a5fa", fontWeight: 700, fontSize: 14, textDecoration: "none", padding: "12px 24px", borderRadius: 10, border: "1px solid rgba(96,165,250,0.25)" }}>
+                  Ver portfolio →
+                </a>
+                <a href={WA} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.04)", color: "#888", fontWeight: 600, fontSize: 14, textDecoration: "none", padding: "12px 24px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.1)" }}>
+                  Hablemos
+                </a>
+              </div>
             </div>
 
             {/* Automatizaciones con IA */}
