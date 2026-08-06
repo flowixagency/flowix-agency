@@ -70,18 +70,34 @@ body { background: #050508; color: #fff; overflow-x: hidden; }
 .dot-blink   { animation: dot-blink 1.4s ease-in-out infinite; }
 .slide-row   { animation: slide-in-row 0.6s ease both; }
 
-/* ─── SCROLL REVEAL ─────────────────────────────────────────── */
-.sr         { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-.sr.visible { opacity: 1; transform: translateY(0); }
+/* ─── SCROLL REVEAL & ANIMATIONS ───────────────────────────── */
+.sr {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+.sr.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ─── HOVER EFFECTS & CARD TRANSITIONS ───────────────────────── */
 .diff-card {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  will-change: opacity, transform, border-color, box-shadow;
+  backface-visibility: hidden;
 }
 .diff-card:hover {
-  transform: translateY(-8px) scale(1.01);
+  transform: translateY(-6px) scale(1.008);
   background-color: rgba(255,255,255,0.06) !important;
   border-color: rgba(0,204,106,0.35) !important;
   box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(0,204,106,0.12);
@@ -134,18 +150,54 @@ body { background: #050508; color: #fff; overflow-x: hidden; }
 .footer-link { transition: color 0.2s ease, transform 0.2s ease; }
 .footer-link:hover { color: #00CC6A !important; transform: translateX(3px); }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+.desktop-only { display: inline-block; }
+.mobile-only  { display: none; }
+
+/* ─── RESPONSIVE & MOBILE-FIRST OPTIMIZATIONS ───────────────── */
 @media (max-width: 900px) {
   .hero-grid      { grid-template-columns: 1fr !important; }
   .services-grid  { grid-template-columns: 1fr 1fr !important; }
   .products-grid  { grid-template-columns: 1fr !important; }
   .steps-grid     { grid-template-columns: 1fr 1fr !important; }
   .stats-bar      { grid-template-columns: 1fr 1fr !important; }
+  .dash-3d        { transform: none !important; animation: none !important; max-width: 100% !important; }
+  .footer-grid    { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
+  nav {
+    padding: 0 16px !important;
+    gap: 12px !important;
+  }
+  .desktop-only { display: none !important; }
+  .mobile-only  { display: inline-block !important; }
+  
+  .nav-cta-btn {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  section, footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
   .nav-links-row  { display: none !important; }
   .services-grid  { grid-template-columns: 1fr !important; }
   .steps-grid     { grid-template-columns: 1fr !important; }
-  .stats-bar      { grid-template-columns: 1fr 1fr !important; }
+  .stats-bar      { grid-template-columns: 1fr !important; }
+  .footer-grid    { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .diff-card      { padding: 24px 20px !important; }
+  
+  table {
+    font-size: 13px !important;
+  }
+  th, td {
+    padding: 12px 14px !important;
+  }
 }

@@ -25,7 +25,7 @@ const faqs = [
 ];
 
 export default function FaqAccordion() {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const toggle = (idx: number) => {
     setOpenIdx(openIdx === idx ? null : idx);

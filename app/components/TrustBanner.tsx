@@ -39,7 +39,6 @@ export default function TrustBanner() {
                 padding: 32,
                 position: "relative",
                 overflow: "hidden",
-                transitionDelay: `${idx * 0.1}s`,
                 boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
               }}
             >

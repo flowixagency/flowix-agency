@@ -42,7 +42,7 @@ export default function RoiCalculator() {
           </p>
         </div>
 
-        <div className="sr glow-card" style={{ background: "rgba(15, 23, 42, 0.75)", border: "1px solid #1E293B", borderRadius: 32, padding: "44px 40px", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 48, alignItems: "center" }}>
+        <div className="sr glow-card products-grid" style={{ background: "rgba(15, 23, 42, 0.75)", border: "1px solid #1E293B", borderRadius: 32, padding: "44px 40px", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 48, alignItems: "center" }}>
           
           {/* Left Column: Interactive Controls */}
           <div style={{ display: "grid", gap: 32 }}>

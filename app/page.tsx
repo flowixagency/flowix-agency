@@ -100,6 +100,20 @@ const modularServices = [
     accent: NEON_CYAN,
     waParam: "Automatizaciones%20con%20IA%20%26%20Bots%20de%20WhatsApp",
   },
+  {
+    title: "Infraestructura NFC & Smart Signage",
+    desc: "Configuración de tarjetas y stickers NFC dinámicos para mostradores con QR impreso y vinculación directa a Google Maps o Flowix Book.",
+    deliverables: [
+      "Stickers y tarjetas NFC Smart impresos y programados",
+      "Códigos QR de alta resolución listos para imprimir",
+      "Vinculación a reseñas de Google Maps o Flowix Book",
+      "Configuración inicial y capacitación para tu equipo",
+    ],
+    time: "$120.000 ARS Setup + $25.000 ARS/mes",
+    icon: "📡",
+    accent: NEON_GREEN,
+    waParam: "Infraestructura%20NFC%20%26%20Smart%20Signage",
+  },
 ];
 
 const processSteps = [
@@ -125,9 +139,10 @@ const processSteps = [
 
 const growthPackageFeatures = [
   "Landing Page de Alta Conversión optimizada para móviles.",
+  "Sistema Flowix Book: Plataforma propia de agendamiento de turnos y gestión de clientes.",
   "Bot de WhatsApp con integración de agendamiento automático.",
-  "Sistema de filtrado de reseñas para Google Maps.",
-  "Generador de Código QR listo para imprimir.",
+  "Sistema de filtrado inteligente de reseñas para Google Maps.",
+  "Tecnología NFC + Código QR: Sticker Smart impreso/programado + QR de alta resolución.",
   "Hosting Cloud rápido + mantenimiento preventivo continuo.",
 ];
 
@@ -174,7 +189,7 @@ export default function FlowixAgency() {
 
       {/* NAVBAR */}
       <nav style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(0,0,0,0.84)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", borderBottom: "1px solid rgba(255,255,255,0.07)", padding: "0 40px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
           <span style={{ fontFamily: "monospace", fontWeight: 800, fontSize: 22, color: G, textShadow: "0 0 5px rgba(0,204,106,0.55), 0 0 12px rgba(0,204,106,0.25)", letterSpacing: "-1px" }}>{"</>"}</span>
           <span style={{ fontWeight: 700, fontSize: 22, letterSpacing: "-0.5px" }}><span style={{ color: "#fff" }}>Flo</span><span style={{ color: G }}>wix</span></span>
         </div>
@@ -183,7 +198,10 @@ export default function FlowixAgency() {
             <a key={link.label} href={link.href} className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>{link.label}</a>
           ))}
         </div>
-        <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary-hover" style={{ background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "10px 24px", borderRadius: 10 }}>Hablemos por WhatsApp</a>
+        <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary-hover nav-cta-btn" style={{ background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "10px 24px", borderRadius: 10, flexShrink: 0 }}>
+          <span className="desktop-only">Hablemos por WhatsApp</span>
+          <span className="mobile-only">WhatsApp 💬</span>
+        </a>
       </nav>
 
       {/* HERO SECTION */}
@@ -286,8 +304,8 @@ export default function FlowixAgency() {
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 18 }} className="services-grid">
-            {industrySolutions.map((item, idx) => (
-              <div key={item.title} className={`sr ${item.cardClass}`} style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${item.accent}25`, borderRadius: 24, padding: 28, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column", transitionDelay: `${idx * 0.1}s` }}>
+            {industrySolutions.map((item) => (
+              <div key={item.title} className={`sr ${item.cardClass}`} style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${item.accent}25`, borderRadius: 24, padding: 28, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
                 <div aria-hidden style={{ position: "absolute", top: -40, right: -40, width: 120, height: 120, background: `radial-gradient(circle, ${item.accent}15 0%, transparent 65%)`, pointerEvents: "none" }} />
                 
                 <div style={{ display: "inline-flex", alignSelf: "flex-start", padding: "4px 10px", borderRadius: 8, background: `${item.accent}12`, border: `1px solid ${item.accent}25`, color: item.accent, fontSize: 11, fontWeight: 700, marginBottom: 16 }}>
@@ -312,8 +330,8 @@ export default function FlowixAgency() {
             </h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 20 }} className="products-grid">
-            {industrySolutions.map((item, idx) => (
-              <div key={item.title} className={`sr ${item.cardClass}`} style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${item.accent}22`, borderRadius: 24, padding: 32, display: "flex", gap: 20, alignItems: "flex-start", transitionDelay: `${idx * 0.12}s` }}>
+            {industrySolutions.map((item) => (
+              <div key={item.title} className={`sr ${item.cardClass}`} style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${item.accent}22`, borderRadius: 24, padding: 32, display: "flex", gap: 20, alignItems: "flex-start" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 52, height: 52, borderRadius: 16, background: `${item.accent}15`, border: `1px solid ${item.accent}30`, color: item.accent, fontSize: 18, fontWeight: 800, flexShrink: 0 }}>
                   {item.title.substring(0, 2).toUpperCase()}
                 </div>
@@ -337,8 +355,8 @@ export default function FlowixAgency() {
             </h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 20 }} className="steps-grid">
-            {processSteps.map((step, idx) => (
-              <div key={step.num} className="sr diff-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 24, padding: 32, transitionDelay: `${idx * 0.12}s` }}>
+            {processSteps.map((step) => (
+              <div key={step.num} className="sr diff-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 24, padding: 32 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
                   <div style={{ width: 48, height: 48, borderRadius: 16, background: "rgba(0,204,106,0.12)", border: "1px solid rgba(0,204,106,0.22)", display: "grid", placeItems: "center", fontSize: 22 }}>{step.icon}</div>
                   <span style={{ fontSize: 13, fontWeight: 800, color: G, background: "rgba(0,204,106,0.1)", padding: "4px 12px", borderRadius: 8, letterSpacing: "-0.5px" }}>Paso {step.num}</span>
@@ -351,81 +369,410 @@ export default function FlowixAgency() {
         </div>
       </section>
 
-      {/* PLANES / CRECIMIENTO LOCAL 360 */}
-      <section id="planes" style={{ padding: "80px 40px", background: "#050508", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      {/* SECCIÓN: NUESTROS DIFERENCIALES TECNOLÓGICOS Y TABLA COMPARATIVA */}
+      <section id="diferenciales" style={{ padding: "88px 40px", background: "#08080f", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ maxWidth: 1150, margin: "0 auto" }}>
+          {/* Header */}
           <div className="sr" style={{ textAlign: "center", marginBottom: 56 }}>
-            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 14 }}>Crecimiento Local 360</p>
-            <h2 style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.05, maxWidth: 720, margin: "0 auto" }}>
-              Paquete completo para transformar reservas, reseñas y ventas.
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 16px", borderRadius: 999, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", color: NEON_GREEN, fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", marginBottom: 16 }}>
+              TECNOLOGÍA Y SOFTWARE PROPIO
+            </div>
+            <h2 style={{ fontSize: "clamp(32px, 4vw, 54px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.05, maxWidth: 820, margin: "0 auto 16px" }}>
+              Nuestros <em style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", color: G }}>Diferenciales Tecnológicos</em>
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.65)", maxWidth: 680, margin: "18px auto 0", fontSize: 16, lineHeight: 1.75 }}>
-              Una solución estratégica para que tu comercio tenga presencia, reservas y reputación sin que tengas que perseguir clientes.
+            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 16, lineHeight: 1.75, maxWidth: 680, margin: "0 auto" }}>
+              Innovación físico-digital en tu mostrador combinada con nuestro propio software de agendamiento para automatizar tu negocio sin pagar comisiones por turno.
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 24, alignItems: "start" }} className="products-grid">
-            {/* Package Glow Card */}
-            <div className="sr glow-card" style={{ background: "rgba(0,204,106,0.07)", border: "1px solid rgba(0,204,106,0.28)", borderRadius: 32, padding: 36, position: "relative", overflow: "hidden", boxShadow: "0 0 70px rgba(0,204,106,0.12)" }}>
-              <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent 0%, rgba(0,204,106,0.9) 50%, transparent 100%)", pointerEvents: "none" }} />
-              
-              <div className="pulse-badge" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 999, background: "rgba(0,204,106,0.12)", color: G, fontSize: 12, fontWeight: 700, marginBottom: 24 }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: G, display: "inline-block" }} />
-                Paquete Premium
-              </div>
-
-              <h3 style={{ fontSize: 30, fontWeight: 800, marginBottom: 16, letterSpacing: "-1px" }}>Landing + WhatsApp + Reseñas</h3>
-              <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, lineHeight: 1.8, marginBottom: 28 }}>
-                Incluye diseño, desarrollo, automatización y mantenimiento continuo para que tu negocio deje de depender del trabajo manual.
-              </p>
-
-              <div style={{ display: "grid", gap: 14, marginBottom: 32 }}>
-                {growthPackageFeatures.map((feature) => (
-                  <div key={feature} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-                    <div style={{ width: 16, height: 16, borderRadius: 5, background: "rgba(0,204,106,0.15)", border: "1px solid rgba(0,204,106,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 3 }}>
-                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-                    </div>
-                    <p style={{ margin: 0, color: "rgba(255,255,255,0.8)", fontSize: 15, lineHeight: 1.7 }}>{feature}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 14 }} className="stats-bar">
-                <div style={{ borderRadius: 20, padding: "20px", background: "rgba(0,204,106,0.1)", border: "1px solid rgba(0,204,106,0.25)" }}>
-                  <p style={{ margin: 0, fontSize: 12, color: "rgba(255,255,255,0.6)", marginBottom: 8 }}>Desarrollo e implementación</p>
-                  <p style={{ margin: 0, fontSize: 26, fontWeight: 800, color: "#fff", letterSpacing: "-1px" }}>$250.000 ARS</p>
+          {/* Grid 2 Tarjetas Destacadas */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 28, marginBottom: 72 }}>
+            {/* Tarjeta 1: Tecnología Smart NFC */}
+            <div className="sr diff-card" style={{ background: "#0F172A", border: `1px solid ${NEON_GREEN}`, borderRadius: 28, padding: 36, position: "relative", overflow: "hidden", boxShadow: `0 0 40px ${NEON_GREEN}18` }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+                <div style={{ width: 56, height: 56, borderRadius: 18, background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.3)", display: "grid", placeItems: "center", fontSize: 26 }}>
+                  📡
                 </div>
-                <div style={{ borderRadius: 20, padding: "20px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                  <p style={{ margin: 0, fontSize: 12, color: "rgba(255,255,255,0.6)", marginBottom: 8 }}>Servidores y mantenimiento</p>
-                  <p style={{ margin: 0, fontSize: 26, fontWeight: 800, color: "#fff", letterSpacing: "-1px" }}>$45.000 ARS/mes</p>
+                <span style={{ fontSize: 11, fontWeight: 800, color: NEON_GREEN, background: "rgba(16,185,129,0.12)", padding: "6px 14px", borderRadius: 999, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                  Hardware Físico-Digital
+                </span>
+              </div>
+              <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 14, letterSpacing: "-0.5px" }}>Tecnología Smart NFC</h3>
+              <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, lineHeight: 1.75, marginBottom: 24 }}>
+                Stickers y tarjetas inteligentes NFC colocados en tu mostrador o mesas. Tus clientes solo tienen que acercar su teléfono para agendar turnos o dejar reseñas de 5 estrellas en Google Maps al instante.
+              </p>
+              <div style={{ display: "grid", gap: 12, borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 20 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ color: NEON_GREEN, fontWeight: 900 }}>✓</span>
+                  <span style={{ color: "rgba(255,255,255,0.85)", fontSize: 14 }}>Reseñas y agendamiento instantáneo acercando el celular</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ color: NEON_GREEN, fontWeight: 900 }}>✓</span>
+                  <span style={{ color: "rgba(255,255,255,0.85)", fontSize: 14 }}>Stickers duraderos personalizados con la gráfica de tu marca</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ color: NEON_GREEN, fontWeight: 900 }}>✓</span>
+                  <span style={{ color: "rgba(255,255,255,0.85)", fontSize: 14 }}>Cero fricción: sin descargar apps ni ingresar URLs manualmente</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Card CTA */}
-            <div className="sr diff-card" style={{ borderRadius: 28, background: "rgba(8,8,10,0.92)", border: "1px solid rgba(0,204,106,0.2)", padding: 32, display: "flex", flexDirection: "column", gap: 22, height: "100%", justifyContent: "space-between", transitionDelay: "0.15s" }}>
-              <div>
-                <div style={{ display: "grid", gap: 10, padding: "18px", background: "rgba(0,204,106,0.08)", borderRadius: 20, marginBottom: 24 }}>
-                  <span style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em" }}>Crecimiento Local 360</span>
-                  <h3 style={{ margin: 0, fontSize: 24, fontWeight: 800, letterSpacing: "-0.5px" }}>Infraestructura digital completa</h3>
+            {/* Tarjeta 2: Sistema Flowix Book */}
+            <div className="sr diff-card" style={{ background: "#0F172A", border: `1px solid ${NEON_GREEN}`, borderRadius: 28, padding: 36, position: "relative", overflow: "hidden", boxShadow: `0 0 40px ${NEON_GREEN}18` }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+                <div style={{ width: 56, height: 56, borderRadius: 18, background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.3)", display: "grid", placeItems: "center", fontSize: 26 }}>
+                  📅
                 </div>
-                
-                <div style={{ display: "grid", gap: 16 }}>
+                <span style={{ fontSize: 11, fontWeight: 800, color: NEON_GREEN, background: "rgba(16,185,129,0.12)", padding: "6px 14px", borderRadius: 999, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                  Software Propio • 0% Comisiones
+                </span>
+              </div>
+              <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 14, letterSpacing: "-0.5px" }}>Sistema Flowix Book</h3>
+              <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, lineHeight: 1.75, marginBottom: 24 }}>
+                Nuestra propia plataforma de agendamiento y gestión de clientes a medida. Mantené el control total de tu negocio sin pagar comisiones por turno agendado ni compartir tu base con la competencia.
+              </p>
+              <div style={{ display: "grid", gap: 12, borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 20 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ color: NEON_GREEN, fontWeight: 900 }}>✓</span>
+                  <span style={{ color: "rgba(255,255,255,0.85)", fontSize: 14 }}>0% comisiones por reserva efectuada</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ color: NEON_GREEN, fontWeight: 900 }}>✓</span>
+                  <span style={{ color: "rgba(255,255,255,0.85)", fontSize: 14 }}>Panel de control intuitivo para gestionar turnos y clientes</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <span style={{ color: NEON_GREEN, fontWeight: 900 }}>✓</span>
+                  <span style={{ color: "rgba(255,255,255,0.85)", fontSize: 14 }}>Integración directa con WhatsApp y tu Landing Page</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* TABLA COMPARATIVA: Flowix vs. Softwares Tradicionales */}
+          <div className="sr" style={{ background: "rgba(15, 23, 42, 0.9)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 28, padding: "40px 32px", boxShadow: "0 20px 50px rgba(0,0,0,0.4)" }}>
+            <div style={{ textAlign: "center", marginBottom: 36 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 16px", borderRadius: 999, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)", fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", marginBottom: 14 }}>
+                COMPARATIVA DIRECTA
+              </div>
+              <h3 style={{ fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 800, letterSpacing: "-1px", marginBottom: 10 }}>
+                Flowix vs. Softwares Tradicionales
+              </h3>
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 15, maxWidth: 620, margin: "0 auto" }}>
+                Descubrí por qué nuestros clientes eligen Flowix frente a plataformas tradicionales como AgendaPro o TuTurno.
+              </p>
+            </div>
+
+            {/* Desktop / Mobile responsive table container */}
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", minWidth: 650 }}>
+                <thead>
+                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.12)" }}>
+                    <th style={{ padding: "16px 20px", color: "rgba(255,255,255,0.5)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.08em", width: "22%" }}>Punto Clave</th>
+                    <th style={{ padding: "16px 20px", color: "rgba(255,255,255,0.5)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.08em", width: "39%" }}>Softwares Tradicionales (AgendaPro / TuTurno)</th>
+                    <th style={{ padding: "16px 20px", color: NEON_GREEN, fontSize: 12, textTransform: "uppercase", letterSpacing: "0.08em", width: "39%", background: "rgba(16,185,129,0.06)", borderRadius: "12px 12px 0 0" }}>Flowix Ecosistema 360 🚀</th>
+                  </tr>
+                </thead>
+                <tbody>
                   {[
-                    "Arquitectura de conversión para Google Maps y redes.",
-                    "Gestión centralizada de agendamiento y clientes.",
-                    "Estrategia de reseñas y posicionamiento local.",
-                  ].map((item) => (
-                    <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                      <div style={{ width: 6, height: 6, marginTop: 8, borderRadius: "50%", background: G, flexShrink: 0 }} />
-                      <p style={{ margin: 0, color: "rgba(255,255,255,0.75)", fontSize: 14, lineHeight: 1.7 }}>{item}</p>
+                    {
+                      feature: "Soporte",
+                      trad: "Ticket genérico y tiempos de espera prolongados.",
+                      flowix: "Atención directa por WhatsApp.",
+                    },
+                    {
+                      feature: "Personalización",
+                      trad: "Plantilla idéntica estandarizada a la competencia.",
+                      flowix: "Landing Page única a medida.",
+                    },
+                    {
+                      feature: "Captura en Local",
+                      trad: "Ninguna integración física en el local.",
+                      flowix: "Tecnología Smart NFC + QR impreso.",
+                    },
+                    {
+                      feature: "Posicionamiento",
+                      trad: "Solo agendamiento básico de turnos.",
+                      flowix: "Integración con Google Maps para Reseñas.",
+                    },
+                  ].map((row, i) => (
+                    <tr key={i} style={{ borderBottom: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
+                      <td style={{ padding: "20px", fontWeight: 700, fontSize: 14, color: "#fff" }}>{row.feature}</td>
+                      <td style={{ padding: "20px", color: "rgba(255,255,255,0.55)", fontSize: 14 }}>
+                        <span style={{ color: "#EF4444", fontWeight: 700, marginRight: 8 }}>✕</span>
+                        {row.trad}
+                      </td>
+                      <td style={{ padding: "20px", color: "#fff", fontWeight: 600, fontSize: 14, background: "rgba(16,185,129,0.06)", borderLeft: "1px solid rgba(16,185,129,0.15)", borderRight: "1px solid rgba(16,185,129,0.15)" }}>
+                        <span style={{ color: NEON_GREEN, fontWeight: 900, marginRight: 8 }}>✓</span>
+                        {row.flowix}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECCIÓN: SHOWROOM FÍSICO & TARJETAS SMART NFC */}
+      <section id="showroom-nfc" style={{ padding: "88px 40px", background: "#050508", borderTop: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden" }}>
+        <div style={{ maxWidth: 1150, margin: "0 auto" }}>
+          {/* Header */}
+          <div className="sr" style={{ textAlign: "center", marginBottom: 56 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 16px", borderRadius: 999, background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.25)", color: NEON_CYAN, fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", marginBottom: 16 }}>
+              HARDWARE INCLUIDO Y PROGRAMADO
+            </div>
+            <h2 style={{ fontSize: "clamp(32px, 4vw, 54px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.05, maxWidth: 820, margin: "0 auto 16px" }}>
+              Tecnología Físico-Digital para tu Mostrador 🏷️
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: 16, lineHeight: 1.75, maxWidth: 720, margin: "0 auto" }}>
+              Incluido en tu paquete: Tarjetas y carteles Smart NFC personalizados con la marca de tu local. Apoyás el teléfono o escaneás el QR.
+            </p>
+          </div>
+
+          {/* Container de Tarjetas Físicas (Showroom) */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 32, marginBottom: 48 }} className="products-grid">
+            
+            {/* Tarjeta 1: Turnos (Azul Neón / Cyan Accents) */}
+            <div className="sr diff-card" style={{ background: "#0F172A", border: "1px solid rgba(14,165,233,0.35)", borderRadius: 32, padding: 36, position: "relative", overflow: "hidden", boxShadow: "0 0 50px rgba(14,165,233,0.12)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, transparent 0%, #0EA5E9 50%, transparent 100%)", pointerEvents: "none" }} />
+              
+              {/* Tarjeta Física Simulada (Blanca Elegante) */}
+              <div style={{ width: "100%", maxWidth: 340, background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)", color: "#0F172A", borderRadius: 24, padding: "28px 24px", boxShadow: "0 20px 40px rgba(0,0,0,0.5), 0 0 25px rgba(14,165,233,0.25)", border: "1px solid rgba(14,165,233,0.2)", position: "relative" }}>
+                {/* Chip NFC Visual Indicator */}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(14,165,233,0.12)", border: "1px solid rgba(14,165,233,0.3)", display: "grid", placeItems: "center", fontSize: 16 }}>
+                      🏢
+                    </div>
+                    <span style={{ fontSize: 13, fontWeight: 800, color: "#0F172A", letterSpacing: "-0.3px" }}>Tu Local / Marca</span>
+                  </div>
+                  <span style={{ fontSize: 10, fontWeight: 800, background: "#0EA5E9", color: "#FFF", padding: "3px 8px", borderRadius: 6, letterSpacing: "0.05em" }}>
+                    NFC ACTIVE
+                  </span>
+                </div>
+
+                {/* Encabezado Opción */}
+                <h4 style={{ fontSize: 22, fontWeight: 900, color: "#0F172A", margin: "0 0 6px", letterSpacing: "-0.5px" }}>
+                  Reservá tu turno
+                </h4>
+                <p style={{ margin: "0 0 20px", fontSize: 12, color: "#64748B", fontWeight: 600 }}>
+                  Agendamiento online en 30 segundos
+                </p>
+
+                {/* Ilustración QR Code elegante */}
+                <div style={{ background: "#F1F5F9", border: "2px dashed rgba(14,165,233,0.4)", borderRadius: 16, padding: 16, display: "inline-block", marginBottom: 20 }}>
+                  <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3z" fill="#0F172A" fillOpacity="0.1" />
+                    <path d="M5 5h2v2H5zM17 5h2v2h-2zM5 17h2v2H5z" fill="#0EA5E9" />
+                    <path d="M10 3h1v4h-1zM13 3h1v2h-1zM10 8h4v1h-4zM3 10h2v1H3zM7 10h1v4H7zM10 10h3v1h-3zM14 10h2v3h-2zM17 10h4v1h-4zM10 13h1v3h-1zM12 14h2v1h-2zM15 14h1v3h-1zM18 13h1v4h-1zM10 17h3v1h-3zM14 17h2v4h-2zM17 18h4v1h-4zM3 12h1v2H3zM5 13h1v1H5zM3 19h1v2H3zM5 20h3v1H5zM18 20h3v1h-3z" fill="#0F172A" />
+                  </svg>
+                </div>
+
+                {/* Pill NFC Instruction */}
+                <div style={{ background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.3)", borderRadius: 999, padding: "8px 14px", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, color: "#0284C7", fontSize: 11, fontWeight: 800, marginBottom: 14 }}>
+                  <span>📶</span>
+                  <span>NFC - Apoyá el celu · o escaneá el QR</span>
+                </div>
+
+                {/* Footer Brand Credit */}
+                <div style={{ borderTop: "1px solid #E2E8F0", paddingTop: 10, fontSize: 10, color: "#94A3B8", fontWeight: 700 }}>
+                  Powered by Flowix · <span style={{ color: "#0EA5E9" }}>flowixagency.com</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Tarjeta 2: Reseñas ⭐ (Dorado / Amarillo Accents) */}
+            <div className="sr diff-card" style={{ background: "#0F172A", border: "1px solid rgba(245,158,11,0.35)", borderRadius: 32, padding: 36, position: "relative", overflow: "hidden", boxShadow: "0 0 50px rgba(245,158,11,0.12)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, transparent 0%, #F59E0B 50%, transparent 100%)", pointerEvents: "none" }} />
+              
+              {/* Tarjeta Física Simulada (Blanca Elegante) */}
+              <div style={{ width: "100%", maxWidth: 340, background: "linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%)", color: "#0F172A", borderRadius: 24, padding: "28px 24px", boxShadow: "0 20px 40px rgba(0,0,0,0.5), 0 0 25px rgba(245,158,11,0.25)", border: "1px solid rgba(245,158,11,0.2)", position: "relative" }}>
+                {/* Chip NFC Visual Indicator */}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{ width: 32, height: 32, borderRadius: 10, background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.3)", display: "grid", placeItems: "center", fontSize: 16 }}>
+                      🏢
+                    </div>
+                    <span style={{ fontSize: 13, fontWeight: 800, color: "#0F172A", letterSpacing: "-0.3px" }}>Tu Local / Marca</span>
+                  </div>
+                  <span style={{ fontSize: 10, fontWeight: 800, background: "#F59E0B", color: "#FFF", padding: "3px 8px", borderRadius: 6, letterSpacing: "0.05em" }}>
+                    NFC ACTIVE
+                  </span>
+                </div>
+
+                {/* Encabezado Opción */}
+                <h4 style={{ fontSize: 22, fontWeight: 900, color: "#0F172A", margin: "0 0 4px", letterSpacing: "-0.5px" }}>
+                  Dejanos tu reseña ⭐
+                </h4>
+                <div style={{ color: "#F59E0B", fontSize: 14, marginBottom: 16 }}>
+                  ⭐⭐⭐⭐⭐
+                </div>
+
+                {/* Ilustración QR Code elegante */}
+                <div style={{ background: "#FEF3C7", border: "2px dashed rgba(245,158,11,0.5)", borderRadius: 16, padding: 16, display: "inline-block", marginBottom: 20 }}>
+                  <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#0F172A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3z" fill="#0F172A" fillOpacity="0.1" />
+                    <path d="M5 5h2v2H5zM17 5h2v2h-2zM5 17h2v2H5z" fill="#F59E0B" />
+                    <path d="M10 3h1v4h-1zM13 3h1v2h-1zM10 8h4v1h-4zM3 10h2v1H3zM7 10h1v4H7zM10 10h3v1h-3zM14 10h2v3h-2zM17 10h4v1h-4zM10 13h1v3h-1zM12 14h2v1h-2zM15 14h1v3h-1zM18 13h1v4h-1zM10 17h3v1h-3zM14 17h2v4h-2zM17 18h4v1h-4zM3 12h1v2H3zM5 13h1v1H5zM3 19h1v2H3zM5 20h3v1H5zM18 20h3v1h-3z" fill="#0F172A" />
+                  </svg>
+                </div>
+
+                {/* Pill NFC Instruction */}
+                <div style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.3)", borderRadius: 999, padding: "8px 14px", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, color: "#D97706", fontSize: 11, fontWeight: 800, marginBottom: 14 }}>
+                  <span>📶</span>
+                  <span>NFC - Apoyá el celu · o escaneá el QR</span>
+                </div>
+
+                {/* Footer Brand Credit */}
+                <div style={{ borderTop: "1px solid #E2E8F0", paddingTop: 10, fontSize: 10, color: "#94A3B8", fontWeight: 700 }}>
+                  Powered by Flowix · <span style={{ color: "#D97706" }}>flowixagency.com</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bloque Informativo en la base (Note Card) */}
+          <div className="sr" style={{ background: "rgba(15, 23, 42, 0.85)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: 20, padding: "20px 28px", display: "flex", alignItems: "center", gap: 16, maxWidth: 900, margin: "0 auto", boxShadow: "0 10px 30px rgba(0,0,0,0.3)" }}>
+            <div style={{ width: 44, height: 44, borderRadius: 14, background: "rgba(16,185,129,0.12)", border: "1px solid rgba(16,185,129,0.3)", display: "grid", placeItems: "center", fontSize: 22, flexShrink: 0 }}>
+              📦
+            </div>
+            <p style={{ margin: 0, color: "rgba(255,255,255,0.85)", fontSize: 14, lineHeight: 1.65, fontWeight: 600 }}>
+              Todas las tarjetas se entregan impresas, programadas con chip NFC de alta velocidad y personalizadas con el logo y colores de tu comercio.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* PLANES / CRECIMIENTO LOCAL 360 */}
+      <section id="planes" style={{ padding: "80px 40px", background: "#050508", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ maxWidth: 1150, margin: "0 auto" }}>
+          <div className="sr" style={{ textAlign: "center", marginBottom: 56 }}>
+            <p style={{ color: G, fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", marginBottom: 14 }}>Crecimiento Local 360</p>
+            <h2 style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.05, maxWidth: 780, margin: "0 auto" }}>
+              El Motor Tecnológico de tu Negocio
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.65)", maxWidth: 700, margin: "18px auto 0", fontSize: 16, lineHeight: 1.75 }}>
+              Infraestructura integral que combina nuestro software propio de agendamiento con tecnología físico-digital NFC y automatización completa.
+            </p>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1.25fr 0.75fr", gap: 28, alignItems: "stretch" }} className="products-grid">
+            {/* Main Package Glow Card */}
+            <div className="sr glow-card" style={{ background: "rgba(15, 23, 42, 0.75)", border: "1px solid rgba(16,185,129,0.35)", borderRadius: 32, padding: 36, position: "relative", overflow: "hidden", boxShadow: "0 0 70px rgba(16,185,129,0.12)" }}>
+              <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg, transparent 0%, #10B981 50%, transparent 100%)", pointerEvents: "none" }} />
+              
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 24 }}>
+                <div className="pulse-badge" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", borderRadius: 999, background: "rgba(16,185,129,0.12)", color: NEON_GREEN, fontSize: 12, fontWeight: 700 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: NEON_GREEN, display: "inline-block" }} />
+                  Paquete Estrella Premium
+                </div>
+                <span style={{ fontSize: 11, fontWeight: 800, color: NEON_GREEN, background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)", padding: "5px 12px", borderRadius: 8, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                  Tecnología Propia
+                </span>
+              </div>
+
+              <h3 style={{ fontSize: 32, fontWeight: 800, marginBottom: 12, letterSpacing: "-1px" }}>Crecimiento Local 360</h3>
+              <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, lineHeight: 1.75, marginBottom: 28 }}>
+                Solución de automatización y agendamiento 100% personalizada. Todo lo que tu comercio necesita para multiplicar clientes y reservas en un solo ecosistema.
+              </p>
+
+              {/* 1. BLOQUE DESTACADO / CORE: Nuestros Diferenciales Únicos */}
+              <div style={{ marginBottom: 32 }}>
+                <p style={{ fontSize: 12, color: NEON_GREEN, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 14 }}>
+                  NUESTROS DIFERENCIALES ÚNICOS (CORE)
+                </p>
+                <div style={{ display: "grid", gap: 14 }}>
+                  {/* Diferencial 1 */}
+                  <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: 18, padding: "18px 20px", position: "relative" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                      <span style={{ fontSize: 20 }}>📅</span>
+                      <strong style={{ color: "#fff", fontSize: 16, fontWeight: 800 }}>Flowix Book (Panel de Gestión Propio)</strong>
+                    </div>
+                    <p style={{ margin: 0, color: "rgba(255,255,255,0.75)", fontSize: 13, lineHeight: 1.6 }}>
+                      Control total de turnos, clientes, agenda online y registro centralizado sin pagar comisiones por plataforma.
+                    </p>
+                  </div>
+                  {/* Diferencial 2 */}
+                  <div style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.3)", borderRadius: 18, padding: "18px 20px", position: "relative" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                      <span style={{ fontSize: 20 }}>📡</span>
+                      <strong style={{ color: "#fff", fontSize: 16, fontWeight: 800 }}>Stack de Tecnología NFC (Hardware Físico)</strong>
+                    </div>
+                    <p style={{ margin: 0, color: "rgba(255,255,255,0.75)", fontSize: 13, lineHeight: 1.6 }}>
+                      Tarjetas y stickers Smart NFC programados para colocar en mostradores/mesas y capturar clientes o reseñas al instante.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2. COMPLEMENTOS Y SERVICIOS INCLUIDOS */}
+              <div style={{ marginBottom: 32 }}>
+                <p style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 14 }}>
+                  COMPLEMENTOS & SERVICIOS INCLUIDOS
+                </p>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
+                  {[
+                    { title: "Portal / Web de Reservas", desc: "Landing page ultra rápida optimizada para celulares." },
+                    { title: "Automatización por WhatsApp", desc: "Bot inteligente para confirmaciones y respuestas 24/7." },
+                    { title: "Captación de Reseñas", desc: "Sistema de filtrado directo hacia Google Maps para posicionar el local." },
+                    { title: "Hosting Cloud + Mantenimiento", desc: "Servidores rápidos, seguridad SSL y soporte continuo." },
+                  ].map((comp) => (
+                    <div key={comp.title} style={{ display: "flex", alignItems: "flex-start", gap: 10, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", padding: "12px 14px", borderRadius: 14 }}>
+                      <div style={{ width: 18, height: 18, borderRadius: 6, background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke={NEON_GREEN} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                      </div>
+                      <div>
+                        <strong style={{ display: "block", color: "#fff", fontSize: 13, fontWeight: 700, marginBottom: 2 }}>{comp.title}</strong>
+                        <span style={{ color: "rgba(255,255,255,0.65)", fontSize: 12, lineHeight: 1.5 }}>{comp.desc}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary-hover" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "14px 24px", borderRadius: 14, background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", textDecoration: "none", fontWeight: 700, fontSize: 15, boxShadow: "0 0 30px rgba(0,204,106,0.25)" }}>
-                Quiero mi paquete 360
+              {/* 3. PRECIOS EN PESOS */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 14 }} className="stats-bar">
+                <div style={{ borderRadius: 20, padding: "20px", background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)" }}>
+                  <p style={{ margin: 0, fontSize: 12, color: "rgba(255,255,255,0.6)", marginBottom: 8 }}>Desarrollo e Implementación (Setup)</p>
+                  <p style={{ margin: 0, fontSize: 24, fontWeight: 800, color: "#fff", letterSpacing: "-1px" }}>$250.000 ARS</p>
+                  <span style={{ fontSize: 11, color: NEON_GREEN, fontWeight: 700 }}>Pago único inicial</span>
+                </div>
+                <div style={{ borderRadius: 20, padding: "20px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <p style={{ margin: 0, fontSize: 12, color: "rgba(255,255,255,0.6)", marginBottom: 8 }}>Servidores, Licencia y Mantenimiento</p>
+                  <p style={{ margin: 0, fontSize: 24, fontWeight: 800, color: "#fff", letterSpacing: "-1px" }}>$45.000 ARS/mes</p>
+                  <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", fontWeight: 600 }}>Soporte y cloud continuo</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Card CTA */}
+            <div className="sr diff-card" style={{ borderRadius: 32, background: "#0F172A", border: "1px solid rgba(16,185,129,0.3)", padding: 32, display: "flex", flexDirection: "column", gap: 22, height: "100%", justifyContent: "space-between" }}>
+              <div>
+                <div style={{ display: "grid", gap: 10, padding: "18px", background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 20, marginBottom: 24 }}>
+                  <span style={{ color: NEON_GREEN, fontSize: 12, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em" }}>Crecimiento Local 360</span>
+                  <h3 style={{ margin: 0, fontSize: 22, fontWeight: 800, letterSpacing: "-0.5px" }}>El Motor Tecnológico de tu Negocio</h3>
+                </div>
+                
+                <div style={{ display: "grid", gap: 16 }}>
+                  {[
+                    "Flowix Book: Panel propio sin comisiones por turno.",
+                    "Stack NFC + QR Smart listo para mostradores.",
+                    "Web de reservas ultrarrápida + WhatsApp 24/7.",
+                    "Reseñas en Google Maps y servidores cloud.",
+                  ].map((item) => (
+                    <div key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                      <div style={{ width: 8, height: 8, marginTop: 6, borderRadius: "50%", background: NEON_GREEN, flexShrink: 0 }} />
+                      <p style={{ margin: 0, color: "rgba(255,255,255,0.8)", fontSize: 14, lineHeight: 1.6 }}>{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-primary-hover" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "16px 24px", borderRadius: 14, background: "linear-gradient(135deg, #00CC6A 0%, #00E87A 100%)", color: "#000", textDecoration: "none", fontWeight: 800, fontSize: 15, boxShadow: "0 0 30px rgba(0,204,106,0.3)" }}>
+                Quiero mi Paquete 360 🚀
               </a>
             </div>
           </div>
@@ -464,7 +811,7 @@ export default function FlowixAgency() {
                     justifyContent: "space-between",
                     position: "relative",
                     overflow: "hidden",
-                    transitionDelay: `${idx * 0.1}s`,
+                    transitionDelay: "0s",
                     boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
                   }}
                 >
@@ -545,8 +892,8 @@ export default function FlowixAgency() {
             </h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 20 }} className="steps-grid">
-            {trustItems.map((item, idx) => (
-              <div key={item.title} className="sr diff-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 24, padding: 32, transitionDelay: `${idx * 0.12}s` }}>
+            {trustItems.map((item) => (
+              <div key={item.title} className="sr diff-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 24, padding: 32 }}>
                 <div style={{ width: 48, height: 48, borderRadius: 16, background: "rgba(0,204,106,0.12)", border: "1px solid rgba(0,204,106,0.22)", display: "grid", placeItems: "center", fontSize: 24, marginBottom: 20 }}>{item.icon}</div>
                 <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 12 }}>{item.title}</h3>
                 <p style={{ color: "rgba(255,255,255,0.72)", fontSize: 15, lineHeight: 1.8, margin: 0 }}>{item.desc}</p>
