@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../ejemplo"
+		},
+		{
+			"path": "../../../Bot-Noticias-Deportes"
+		},
+		{
+			"path": "../../../automatización-template"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
