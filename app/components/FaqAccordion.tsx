@@ -68,7 +68,7 @@ export default function FaqAccordion() {
                     width: "100%",
                     padding: "24px 28px",
                     display: "flex",
-                    justify: "space-between",
+                    justifyContent: "space-between",
                     alignItems: "center",
                     gap: 16,
                     background: "none",

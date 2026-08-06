@@ -461,7 +461,7 @@ export default function FlowixAgency() {
                     padding: 32,
                     display: "flex",
                     flexDirection: "column",
-                    justify: "space-between",
+                    justifyContent: "space-between",
                     position: "relative",
                     overflow: "hidden",
                     transitionDelay: `${idx * 0.1}s`,
@@ -512,7 +512,7 @@ export default function FlowixAgency() {
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        justify: "center",
+                        justifyContent: "center",
                         gap: 10,
                         width: "100%",
                         padding: "16px 24px",
